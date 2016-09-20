@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <title>
+            OCHO Tech
+        </title>
+        <style>
+            @font-face {
+                font-family: BigJohn;
+                src: url(styles/fonts/BIG_JOHN.otf);
+            }
+
+            @font-face {
+                font-family: slimjoe;
+                src: url(styles/fonts/slim_joe.otf);
+            }
+
+            body, html {
+                background-color: rgb(51, 204, 255);
+            }
+            
+            .container {
+                width: 100%;
+                max-width: 800px;
+                margin: auto auto;
+            }
+            
+            .title {
+                color: white;
+                text-align: center;
+                font-size: 7em;
+                position: relative;
+                margin: 0;
+                margin-left: calc(50% - 2.0em);
+                margin-top: calc(30% - 1em);
+                display: inline-block;
+                font-family: BigJohn;
+                opacity: 0;
+                
+                -webkit-transition: all 2s;
+                -m-transition: all 2s;
+                -moz-transition: all 2s;
+                transition: all 2s;
+            }
+            
+            .subtitle {
+                color: white;
+                text-align: center;
+                font-size: 1.75em;
+                display: inline-block;
+                font-family: slimjoe;
+                opacity: 0;
+                margin: 0;
+                padding-top: -2em;
+                margin-left: -0.5em;
+                
+                -webkit-transition: all 1s;
+                -m-transition: all 1s;
+                -moz-transition: all 1s;
+                transition: all 1s;
+            }
+            
+            .motto {
+                color: white;
+                text-align: center;
+                font-size: 1.25em;
+                font-family: slimjoe;
+                opacity: 0;
+                margin: 0 auto;
+                
+                -webkit-transition: all 1s;
+                -m-transition: all 1s;
+                -moz-transition: all 1s;
+                transition: all 1s;
+            }
+            
+            .intro {
+                font-size: 1.5em;
+            }
+            
+            .footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                font-family: slimjoe;
+                font-size: 1em;
+                color: #DDD;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="title">OCHO</h1>
+            <h6 class="subtitle">tech</h6>
+            <div class="motto">help people read medical stuff gooder</div>
+            <div class="motto intro">Design Team 8 presents</div>
+            <div class="footer">Patent Pending</div>
+            <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+            <script>
+                var width = $(window).innerWidth;
+                var height = $(window).innerHeight;
+                
+                
+                $(".intro").css("opacity", 1);
+                setTimeout(function() {
+                    $(".intro").css("opacity", 0);
+                    $(".title").css("opacity", 1);
+                    $(".title").css("margin-top", "calc(40% - 1em)");
+                    setTimeout(function() {
+                        $(".subtitle").css("opacity", 1);
+                        $(".subtitle").css("margin-top", "0");
+                        setTimeout(function() {
+                            $(".motto").css("opacity", 1);
+                            $(".intro").css("opacity", 0);
+                        }, 1000);
+                    }, 1000);
+                }, 2000);
+            </script>
+        </div>
+    </body>
+</html>
