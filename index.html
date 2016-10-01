@@ -16,12 +16,21 @@
 
             body, html {
                 background-color: rgba(255, 0, 0, 0.37);
+                margin: 0px;
             }
             
             .container {
                 width: 100%;
                 max-width: 800px;
                 margin: auto auto;
+                height: 100%;
+            }
+            
+            @media screen and (min-width: 500px) {
+                .container {
+                    width: 100%;
+                    
+                }
             }
             
             .title {
@@ -107,10 +116,10 @@
                 setTimeout(function() {
                     $(".intro").css("opacity", 0);
                     $(".title").css("opacity", 1);
-                    $(".title").css("margin-top", "calc(40% - 1em)");
+                    $(".title").css("margin-top", "calc(50% - 1em)");
                     setTimeout(function() {
                         $(".subtitle").css("opacity", 1);
-                        $(".subtitle").css("margin-top", "0");
+                        $(".subtitle").css("margin-top", "0px");
                         setTimeout(function() {
                             $(".motto").css("opacity", 1);
                             $(".intro").css("opacity", 0);
