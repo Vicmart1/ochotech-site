@@ -13,6 +13,16 @@
                 font-family: slimjoe;
                 src: url(styles/fonts/Slim_Joe.otf);
             }
+            
+            @font-face {
+                font-family: raleway;
+                src: url(styles/fonts/Raleway-Light.ttf);
+            }
+
+            @font-face {
+                font-family: raleway-thin;
+                src: url(styles/fonts/Raleway-Thin.ttf);
+            }
 
             body, html {
                 background-color: rgba(255, 0, 0, 0.37);
@@ -21,26 +31,25 @@
             
             .container {
                 width: 100%;
-                max-width: 800px;
                 margin: auto auto;
                 height: 100%;
+                color: white;
             }
             
-            @media screen and (min-width: 500px) {
-                .container {
-                    width: 100%;
-                    
-                }
+            .members {
+                background-color: white;
+                color: black;
+                display: table;
             }
             
             .title {
-                color: white;
                 text-align: center;
                 font-size: 7em;
-                position: relative;
+                position: absolute;
                 margin: 0;
-                margin-left: calc(50% - 2.0em);
-                margin-top: calc(30% - 1em);
+                width: 100%;
+                top: calc(40% - 1em);
+                left: -0.4em;
                 display: inline-block;
                 font-family: BigJohn;
                 opacity: 0;
@@ -54,13 +63,13 @@
             .subtitle {
                 color: white;
                 text-align: center;
-                font-size: 1.75em;
+                font-size: 0.25em;
+                position: absolute;
                 display: inline-block;
                 font-family: slimjoe;
                 opacity: 0;
                 margin: 0;
-                padding-top: -2em;
-                margin-left: -0.5em;
+                bottom: 1em;
                 
                 -webkit-transition: all 1s;
                 -m-transition: all 1s;
@@ -69,12 +78,15 @@
             }
             
             .motto {
+                position: absolute;
                 color: white;
                 text-align: center;
                 font-size: 1.25em;
                 font-family: slimjoe;
                 opacity: 0;
                 margin: 0 auto;
+                width: 100%;
+                top: calc(50% + 0.5em);
                 
                 -webkit-transition: all 1s;
                 -m-transition: all 1s;
@@ -97,36 +109,121 @@
                 font-size: 0em;
                 color: #DDD;
             }
+            
+            .section-title {
+                font-size: 5em;
+                position: relative;
+                margin: 0;
+                margin-left: 0.5em;
+                margin-top: 0.5em;
+                display: inline-block;
+                font-family: BigJohn;
+                color: black;
+                width: calc(100% - 1em);
+            }
+            
+            .img-frame {
+                width: 33%;
+                float: left;
+                font-family: slimjoe;
+                display: table-row;
+            }
+            
+            .member-img {
+                width: 70%;
+                height: auto;
+                margin: 5% 15%;
+                border-radius: 100%;
+            }
+            
+            .img-title {
+                font-size: 1.25em;
+                text-align: center;
+                font-family: BigJohn;
+                margin-bottom: 2.5%;
+            }
+            
+            .img-description {
+                font-family: raleway-thin;
+                font-size: 1.25em;
+                text-align: center;
+                margin: 0 5%;
+                margin-bottom: 5%;
+            }
+            
+            @media screen and (max-width: 1000px) {
+                .img-frame {
+                    width: 50%;
+                }
+            }
+            
+            @media screen and (max-width: 650px) {
+                .img-frame {
+                    width: 100%;
+                }
+            }
         </style>
     </head>
     <body>
         <div class="container">
-            <h1 class="title">OCHO</h1>
-            <h6 class="subtitle">tech</h6>
-            <div class="motto">Empowering the patient</div>
+            <div class="title">OCHO<h6 class="subtitle">tech</h6></div>
+            <div class="motto">Take charge of your health.</div>
             <div class="motto intro">Design Team 8 presents</div>
             <div class="footer">Patent Pending</div>
-            <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
-            <script>
-                var width = $(window).innerWidth;
-                var height = $(window).innerHeight;
-                
-                
-                $(".intro").css("opacity", 1);
-                setTimeout(function() {
-                    $(".intro").css("opacity", 0);
-                    $(".title").css("opacity", 1);
-                    $(".title").css("margin-top", "calc(50% - 1em)");
-                    setTimeout(function() {
-                        $(".subtitle").css("opacity", 1);
-                        $(".subtitle").css("margin-top", "0px");
-                        setTimeout(function() {
-                            $(".motto").css("opacity", 1);
-                            $(".intro").css("opacity", 0);
-                        }, 1000);
-                    }, 1000);
-                }, 2000);
-            </script>
         </div>
+        <div class="container members">
+            <h1 class="section-title">Our Team</h1>
+            <div class="img-frame">
+                <img class='member-img' src="images/graeme-s.png">
+                <div class='img-title'>Graeme Steller</div>
+                <div class='img-description'>Graeme Steller is a senior BME and the founder of Ocho. He competes in international yo-yo competitions and serves crab cakes on his friend’s food truck. His favorite musical artist is Justin Bieber and is proud to admit it. </div>
+            </div>
+            <div class="img-frame">
+                <img class='member-img' src="images/vic-s.png">
+                <div class='img-title'>Victor Dadfar</div>
+                <div class='img-description'>Victor Dadfar is a junior BME and Lead Software Developer at Ocho. He has a strong passion for Star Wars, bossing Graeme around, and formal attire, in no particular order. He is a cult follower of Ariana Grande.</div>
+            </div>
+            <div class="img-frame">
+                <img class='member-img' src="images/saki-s.png">
+                <div class='img-title'>Saki Fujita</div>
+                <div class='img-description'>Saki Fujita is a junior BME who works on Ocho’s Research and Insights team. She is a Japanese national Go champion and has been playing the game competitively for most of her life. Saki’s favorite music is whatever’s on the top hits!</div>                
+            </div>
+            <div class="img-frame">
+                <img class='member-img' src="images/wendy-s.png">
+                <div class='img-title'>Wendy Huang</div>
+                <div class='img-description'>Wendy Huang is a junior BME who works on Ocho’s Research and Insights team. She is a world traveler, having visited 11 countries in her lifetime! Wendy is an avid Tiesto fan. </div>
+            </div>
+            <div class="img-frame">
+                <img class='member-img' src="images/daniel-s.png">
+                <div class='img-title'>Daniel Sohn</div>
+                <div class='img-description'>Daniel Sohn is a junior BME who works on Ocho’s App Development team. He is Ocho’s most inquisitive member and can speak Spanish, Korean, and English fluently! A man of the classics, Daniel enjoys listening to Mozart. </div>
+            </div>
+            <div class="img-frame">
+                <img class='member-img' src="images/nguyen-s.png">
+                <div class='img-title'>Dr. Hien Nguyen</div>
+                <div class='img-description'>Dr. Nguyen is a highly respected general surgeon at Johns Hopkins Hospital and is the clinical sponsor of Ocho. He serves as the director of the Comprehensive Hernia Center. Dr. Nguyen is also a world renowned story teller.</div>
+            </div>
+        </div>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+        <script>
+            var width = $(window).innerWidth;
+            var height = $(window).innerHeight;
+
+            $(".intro").css("opacity", 1);
+            setTimeout(function() {
+                $(".intro").css("opacity", 0);
+                $(".title").css("opacity", 1);
+                $(".title").css("top", "calc(50% - 1em)");
+                setTimeout(function() {
+                    $(".subtitle").css("opacity", 1);
+                    console.log($(".subtitle").css("top"));
+                    console.log($(".subtitle").css("left"));
+                    setTimeout(function() {
+                        $(".motto").css("opacity", 1);
+                        $(".intro").css("opacity", 0);
+                    }, 1000);
+                }, 1000);
+            }, 2000);
+        </script>
     </body>
 </html>
