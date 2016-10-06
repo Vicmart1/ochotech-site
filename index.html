@@ -26,7 +26,7 @@
             }
 
             html {
-                background-color: rgba(255, 0, 0, 0.6);
+                background-color: rgb(255, 102, 101);
             }
             
             body, html {
@@ -126,6 +126,35 @@
                 width: calc(100% - 1em);
             }
             
+            .section-para {
+                font-size: 3em;
+                position: relative;
+                margin: 0;
+                margin-left: 1em;
+                margin-top: 0.5em;
+                display: inline-block;
+                font-family: raleway-thin;
+                color: black;
+                width: calc(100% - 1em);
+            }
+            
+            .section-outer-circle-white {
+                border-radius: 100%;
+                margin: calc(10% - 1px);
+                display: inline-block;
+                
+                position: relative;
+                overflow: hidden;
+                width: 120px;
+                height: 120px;
+            }
+            
+            .center-items {
+                position: relative;
+                width: 75%;
+                margin: auto;
+            }
+            
             .img-frame {
                 width: 33%;
                 font-family: slimjoe;
@@ -174,6 +203,18 @@
                 transition: all 0.5s;
             }
             
+            .text-center {
+                position: relative;
+                top: calc(50% - 1em);
+                width: 200px;
+                height: 2em;
+                line-height: calc(2em);
+                text-align: center;
+                font-family: raleway-thin;
+                font-size: 1.25em;
+                margin: auto;
+            }
+            
             .button-center:hover {
                 width: 250px;
                 cursor: hand;
@@ -184,6 +225,14 @@
                 .img-frame {
                     width: 50%;
                 }
+            }
+            
+            .white {
+                color: white;
+            }
+            
+            .bold {
+                font-family: raleway;
             }
             
             @media screen and (max-width: 650px) {
@@ -203,6 +252,7 @@
                     font-size: 2.5em;
                 }
             }
+            
         </style>
     </head>
     <body>
@@ -246,8 +296,13 @@
             </div>
             <div class="filler" style="position: relative;width: 100%;height: 50px"></div>
         </div>
+        <!--div class="container">
+            <div class="section-title white">Background</div>
+            <div class="section-para white">If the system for delivering primary care in 2020 were to remain fundamentally the same as today, there would be a projected shortage of <span class='bold'>20,400</span> primary care physicians</div>
+        </div-->
         <div class="container">
             <div class="button-center" onclick="mailTo()">CONTACT US</div>
+            <div class="text-center">dtocho@jhu.edu</div>
         </div>
         <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
         <script>
