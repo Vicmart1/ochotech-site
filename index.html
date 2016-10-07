@@ -46,6 +46,10 @@
                 display: table;
             }
             
+            .prog-cont {
+                display: table;
+            }
+            
             .title {
                 text-align: center;
                 font-size: 7em;
@@ -118,8 +122,8 @@
                 font-size: 5em;
                 position: relative;
                 margin: 0;
-                margin-left: 0.5em;
-                margin-top: 0.5em;
+                margin-left: 40px;
+                margin-top: 40px;
                 display: inline-block;
                 font-family: BigJohn;
                 color: black;
@@ -127,31 +131,27 @@
             }
             
             .section-para {
-                font-size: 3em;
+                font-size: 2.5em;
                 position: relative;
                 margin: 0;
-                margin-left: 1em;
-                margin-top: 0.5em;
+                margin-left: 40px;
+                margin-top: 0px;
                 display: inline-block;
                 font-family: raleway-thin;
                 color: black;
                 width: calc(100% - 1em);
             }
             
-            .section-outer-circle-white {
-                border-radius: 100%;
-                margin: calc(10% - 1px);
-                display: inline-block;
-                
-                position: relative;
-                overflow: hidden;
-                width: 120px;
-                height: 120px;
+            .small-para {
+                font-size: 2em; 
+                margin-left: 1.5em;
+                margin-top: 0.5em;
             }
             
             .center-items {
                 position: relative;
-                width: 75%;
+                width: 100%;
+                max-width: 1000px;
                 margin: auto;
             }
             
@@ -235,6 +235,46 @@
                 font-family: raleway;
             }
             
+            .progress {
+                width: calc(30% - 2px);
+                margin: 50px 10%;
+                display: inline-block;
+                font-family: raleway-thin;
+                font-size: 4em;
+                text-align: center;
+                
+                -webkit-transition: all 0.5s;
+                -m-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+            
+            .progress-subtitle {
+                font-size: 0.5em;
+            }
+            
+            .small-subtitle {
+                font-size: 0.3em;
+            }
+            
+            .progress > svg {
+                display: block;
+            }
+            
+            .footnote {
+                font-family: raleway-thin;
+                font-size: 0.9em;
+                margin: 0;
+                margin-left: 40px;
+            }
+            
+            @media screen and (max-width: 900px) {
+                .progress {
+                    width: calc(40% - 2px);
+                    margin: 50px 5%;
+                }
+            }
+            
             @media screen and (max-width: 650px) {
                 .img-frame {
                     width: 100%;
@@ -250,6 +290,11 @@
                 
                 .section-title {
                     font-size: 2.5em;
+                }
+                
+                .progress {
+                    width: 80%;
+                    margin: 50px 10%;
                 }
             }
             
@@ -296,19 +341,94 @@
             </div>
             <div class="filler" style="position: relative;width: 100%;height: 50px"></div>
         </div>
-        <!--div class="container">
+        <div class="container prog-cont">
             <div class="section-title white">Background</div>
-            <div class="section-para white">If the system for delivering primary care in 2020 were to remain fundamentally the same as today, there would be a projected shortage of <span class='bold'>20,400</span> primary care physicians</div>
-        </div-->
+            <div class="section-para white">If the system for delivering primary care in 2020 were to remain fundamentally the same as today, there would be a projected shortage of <span class='bold'>20,400</span> primary care physicians.</div>
+            </br></br></br>
+            <div class='section-para white'>So, we did some research...</div>
+            <div class="center-items">
+                <div class="progress" id="interviews"></div>
+                <div class="progress" id="countries"></div>
+            </div>
+            <div class='section-para white' id='second'>Of the patients and clinicians we interviewed:</div>
+            <div class="center-items">
+                <div class="progress" id="patients"></div>
+                <div class="progress" id="doctors"></div>
+            </div>
+            <sup class="footnote">1. Patient visits included primary care and outpatient visits</sup></br>
+            <sup class="footnote">2. Clinicians reported missing information</sup>
+            </br></br></br>
+            <div class='section-para white'>As the number of primary care physicians decreases, there needs to be a more streamlined and intuitive way to collect and display patient data in order for the physician to make quicker and more informed decisions.</div>
+            </br></br></br>
+            <div class='section-para white'>That's our goal.</div>
+            </br></br></br>
+            <div class='section-para white'>If you think you can help disrupt, we're listening.</div>
+        </div>
         <div class="container">
             <div class="button-center" onclick="mailTo()">CONTACT US</div>
             <div class="text-center">dtocho@jhu.edu</div>
         </div>
         <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+        <script src="js/progressbar.min.js"></script>
         <script>
             var width = $(window).innerWidth;
             var height = $(window).innerHeight;
+            var firstProg = false;
+            var secondProg = false;
+            
+            var interview = new ProgressBar.Circle('#interviews', {
+                color: '#FFF',
+                duration: 5000,
+                strokeWidth: 10,
+                easing: 'easeInOut',
 
+                step: function(state, circle) {
+                    var value = Math.round(circle.value() * 300);
+                    circle.setText(value + "</br><span class='progress-subtitle'>patients</span>");
+                }
+            });
+
+            var countries = new ProgressBar.Circle('#countries', {
+                color: '#FFF',
+                duration: 4000,
+                strokeWidth: 10,
+                easing: 'easeInOut',
+
+                step: function(state, circle) {
+                    var value = Math.round(circle.value() * 5);
+                    circle.setText(value + "</br><span class='progress-subtitle'>countries</span>");
+                }
+            });
+            
+            var patients = new ProgressBar.Circle('#patients', {
+                color: '#FFF',
+                duration: 5000,
+                strokeWidth: 10,
+                easing: 'easeInOut',
+
+                step: function(state, circle) {
+                    var value = Math.round(circle.value() * 100);
+                    circle.setText(value + "%</br><span class='progress-subtitle small-subtitle'>of patients have been to an unnecessary appointment</span>");
+                }
+            });
+
+            var doctors = new ProgressBar.Circle('#doctors', {
+                color: '#FFF',
+                duration: 4000,
+                strokeWidth: 10,
+                easing: 'easeInOut',
+
+                step: function(state, circle) {
+                    var value = Math.round(circle.value() * 100);
+                    circle.setText(value + "%</br><span class='progress-subtitle small-subtitle'>of patient visits<sup>1</sup> were missing information<sup>2</sup></span>");
+                }
+            });
+            
+            patients.animate(0);
+            doctors.animate(0);
+            interview.animate(0);
+            countries.animate(0);
+            
             $(".intro").css("opacity", 1);
             setTimeout(function() {
                 $(".intro").css("opacity", 0);
@@ -328,6 +448,33 @@
             function mailTo() {
                 window.location.href = "mailto:dtocho@jhu.edu";
             }
+            
+            $(window).scroll(function(){
+                determinePos(this)
+            });
+            
+            determinePos($(window));
+            
+            function determinePos(elem) {
+                if($(elem).scrollTop() > $("#second").position().top - 200 && !secondProg) {
+                    secondSet();
+                    secondProg = true;
+                } 
+                if($(elem).scrollTop() > $(".prog-cont").position().top && !firstProg) {
+                    firstSet();
+                    firstProg = true;
+                }
+            }
+            
+            function firstSet() {
+                interview.animate(1);
+                countries.animate(1);
+            }
+            
+            function secondSet() {
+                patients.animate(0.8);
+                doctors.animate(0.3);
+            };
         </script>
     </body>
 </html>
