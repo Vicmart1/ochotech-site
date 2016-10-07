@@ -135,17 +135,12 @@
                 position: relative;
                 margin: 0;
                 margin-left: 40px;
+                margin-right: 20px;
                 margin-top: 0px;
                 display: inline-block;
                 font-family: raleway-thin;
                 color: black;
-                width: calc(100% - 1em);
-            }
-            
-            .small-para {
-                font-size: 2em; 
-                margin-left: 1.5em;
-                margin-top: 0.5em;
+                width: calc(100% - 80px);
             }
             
             .center-items {
@@ -221,11 +216,6 @@
                 pointer: hand;
             }
             
-            @media screen and (max-width: 1000px) {
-                .img-frame {
-                    width: 50%;
-                }
-            }
             
             .white {
                 color: white;
@@ -268,10 +258,34 @@
                 margin-left: 40px;
             }
             
+            @media screen and (max-width: 1000px) {
+                .img-frame {
+                    width: 50%;
+                }
+            }
+            
             @media screen and (max-width: 900px) {
                 .progress {
                     width: calc(40% - 2px);
                     margin: 50px 5%;
+                }
+                
+                .section-title {
+                    font-size: 2em;
+                    margin-top: 20px;
+                    margin-left: 20px;
+                    margin-right: 0px;
+                }
+                
+                .section-para {
+                    font-size: 1.5em;
+                    margin-left: 20px;
+                    margin-right: 0px;
+                }
+                
+                .footnote {
+                    margin-left: 20px;
+                    font-family: raleway;
                 }
             }
             
@@ -355,7 +369,7 @@
                 <div class="progress" id="patients"></div>
                 <div class="progress" id="doctors"></div>
             </div>
-            <sup class="footnote">1. Patient visits included primary care and outpatient visits</sup></br>
+            <sup class="footnote">1. Primary care and outpatient visits</sup></br>
             <sup class="footnote">2. Clinicians reported missing information</sup>
             </br></br></br>
             <div class='section-para white'>As the number of primary care physicians decreases, there needs to be a more streamlined and intuitive way to collect and display patient data in order for the physician to make quicker and more informed decisions.</div>
