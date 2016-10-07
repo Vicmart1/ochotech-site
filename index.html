@@ -118,6 +118,30 @@
                 color: #DDD;
             }
             
+            .arrow-down {
+                position: absolute;
+                bottom: 50px;
+                left: calc(50% - 25px);
+                width: 50px;
+                height: 50px;
+                border-bottom: 2px solid white;
+                border-left: 2px solid white;
+                
+                -ms-transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg); 
+                transform: rotate(-45deg);
+                
+                cursor: hand;
+                pointer: hand;
+                
+                -webkit-transition: all 0.5s;
+                -m-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;
+                
+                opacity: 0;
+            }
+            
             .section-title {
                 font-size: 5em;
                 position: relative;
@@ -308,16 +332,23 @@
                 }
             }
             
+            .preview-img {
+                position: absolute;
+                visibility: hidden;
+            }
+            
         </style>
     </head>
     <body>
+        <img class='preview-img' src="images/logo.png">
         <div class="container">
             <div class="title">OCHO<h6 class="subtitle">TECH</h6></div>
             <div class="motto">TAKE CHARGE OF YOUR HEALTH</div>
             <div class="motto intro">DESIGN TEAM 8 PRESENTS</div>
             <div class="footer">Patent Pending</div>
+            <div class="arrow-down member-link"></div>
         </div>
-        <div class="container members">
+        <div class="container members" id="members">
             <h1 class="section-title">Our Team</h1>
             <div class="img-frame">
                 <img class='member-img' src="images/graeme-s.png">
@@ -451,6 +482,7 @@
                     setTimeout(function() {
                         $(".motto").css("opacity", 1);
                         $(".intro").css("opacity", 0);
+                        $(".member-link").css("opacity", 1);    
                     }, 1000);
                 }, 1000);
             }, 2000);
@@ -461,6 +493,12 @@
             
             $(window).scroll(function(){
                 determinePos(this)
+                
+                if ($(window).scrollTop() <= 0) {
+                    $(".member-link").css("opacity", 1);    
+                } else {
+                    $(".member-link").css("opacity", 0);    
+                }
             });
             
             determinePos($(window));
@@ -484,7 +522,13 @@
             function secondSet() {
                 patients.animate(0.8);
                 doctors.animate(0.3);
-            };
+            }
+            
+            $(".member-link").click(function() {
+                $('html, body').animate({
+                    scrollTop: $("#members").offset().top
+                }, 500);
+            });
         </script>
     </body>
 </html>
