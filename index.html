@@ -242,9 +242,10 @@
             }
             
             .button-center:hover {
-                width: 250px;
                 cursor: hand;
                 pointer: hand;
+                background-color: white;
+                color: rgb(255, 102, 101);
             }
             
             
@@ -349,7 +350,7 @@
     <body>
         <div class="container">
             <div class="title">OCHO<h6 class="subtitle">TECH</h6></div>
-            <div class="motto">TAKE CHARGE OF YOUR HEALTH</div>
+            <div class="motto">TAKE YOUR FUCKING PILLS</div>
             <div class="motto intro">DESIGN TEAM 8 PRESENTS</div>
             <div class="footer">Patent Pending</div>
             <div class="arrow-down member-link"></div>
@@ -386,30 +387,44 @@
                 <div class='img-title'>Dr. Hien Nguyen</div>
                 <div class='img-description'>Dr. Nguyen is a highly respected general surgeon at Johns Hopkins Hospital and is the clinical sponsor of Ocho. He serves as the director of the Comprehensive Hernia Center. Dr. Nguyen is also a world renowned story teller.</div>
             </div>
+            <div class="img-frame">
+                <img class='member-img' src="images/question.png" style="width: 50%;padding: 10%;background-color: gray;">
+                <div class='img-title'>Unannounced Member #6</div>
+                <div class='img-description'>We're on the lookout for the best and brightest to join our team. Check back soon to see the newest members of Ocho Tech.</div>
+            </div>
+            <div class="img-frame">
+                <img class='member-img' src="images/question.png" style="width: 50%;padding: 10%;background-color: gray;">
+                <div class='img-title'>Unannounced Member #7</div>
+                <div class='img-description'>We're on the lookout for the best and brightest to join our team. Check back soon to see the newest members of Ocho Tech.</div>
+            </div>
+            <div class="img-frame">
+                <img class='member-img' src="images/question.png" style="width: 50%;padding: 10%;background-color: gray;">
+                <div class='img-title'>Unannounced Member #8</div>
+                <div class='img-description'>We're on the lookout for the best and brightest to join our team. Check back soon to see the newest members of Ocho Tech.</div>
+            </div>
             <div class="filler" style="position: relative;width: 100%;height: 50px"></div>
         </div>
         <div class="container prog-cont">
             <div class="section-title white">Background</div>
-            <div class="section-para white">If the system for delivering primary care in 2020 were to remain fundamentally the same as today, there would be a projected shortage of <span class='bold'>20,400</span> primary care physicians.</div>
+            <div class="section-para white">In most clinical settings, physicians often rely on the patient's self-report when assessing medication adherance. However, patients forget and tend to overreport, giving physicians a <span class='bold'>skewed</span> understanding of their actual adherance levels.</div>
             </br></br></br>
             <div class='section-para white'>So, we did some research...</div>
             <div class="center-items">
                 <div class="progress" id="interviews"></div>
                 <div class="progress" id="countries"></div>
             </div>
-            <div class='section-para white' id='second'>Of the patients and clinicians we interviewed:</div>
+<div class='section-para white' id='second'>After conducting thorough literary review and user studies, we focused on medication adherance with <span class='bold'>Coronary Artery Disease (CAD)</span> patients. Of those patients:</div>
             <div class="center-items">
                 <div class="progress" id="patients"></div>
                 <div class="progress" id="doctors"></div>
             </div>
-            <sup class="footnote">1. Primary care and outpatient visits</sup></br>
-            <sup class="footnote">2. Clinicians reported missing information</sup>
+            <div class='section-para white'>Our results show that more likely than not, Coronary Artery Diesease patients are <span class='bold'>not</span> telling the truth about their medication adherance. </div>
             </br></br></br>
-            <div class='section-para white'>As the number of primary care physicians decreases, there needs to be a more streamlined and intuitive way to collect and display patient data in order for the physician to make quicker and more informed decisions.</div>
+            <div class='section-para white'>Thus, we believe that physicians need a way to <span class='bold'>verify</span> that CAD patients are taking their medications as prescribed.</div>
             </br></br></br>
-            <div class='section-para white'>That's our goal.</div>
+            <div class='section-para white'>If you want to learn more, contact us.</div>
             </br></br></br>
-            <div class='section-para white'>If you think you can help disrupt, we're listening.</div>
+            <div class='section-para white'>If you think you can help disrupt, we're listening. </div>
         </div>
         <div class="container">
             <div class="button-center" onclick="mailTo()">CONTACT US</div>
@@ -431,7 +446,7 @@
 
                 step: function(state, circle) {
                     var value = Math.round(circle.value() * 300);
-                    circle.setText(value + "</br><span class='progress-subtitle'>patients</span>");
+                    circle.setText(value + "</br><span class='progress-subtitle'>user studies</span>");
                 }
             });
 
@@ -455,19 +470,19 @@
 
                 step: function(state, circle) {
                     var value = Math.round(circle.value() * 100);
-                    circle.setText(value + "%</br><span class='progress-subtitle small-subtitle'>of patients have been to an unnecessary appointment</span>");
+                    circle.setText(value + "%</br><span class='progress-subtitle small-subtitle'>of CAD patients are chronic</span>");
                 }
             });
 
             var doctors = new ProgressBar.Circle('#doctors', {
                 color: '#FFF',
-                duration: 4000,
+                duration: 5000,
                 strokeWidth: 10,
                 easing: 'easeInOut',
 
                 step: function(state, circle) {
                     var value = Math.round(circle.value() * 100);
-                    circle.setText(value + "%</br><span class='progress-subtitle small-subtitle'>of patient visits<sup>1</sup> were missing information<sup>2</sup></span>");
+                    circle.setText("<span class='progress-subtitle small-subtitle'>up to</br></span>" + value + "%</br><span class='progress-subtitle small-subtitle'>of chronic patients fail to adhere</span>");
                 }
             });
             
@@ -526,8 +541,8 @@
             }
             
             function secondSet() {
-                patients.animate(0.8);
-                doctors.animate(0.3);
+                patients.animate(0.81);
+                doctors.animate(0.8);
             }
             
             $(".member-link").click(function() {
