@@ -1,0 +1,685 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta property="og:site_name" content="Ocho Tech"/>
+        <meta property="og:title" content="Homepage"/>
+        <meta property="og:description" content="In an age where the number of clinicians is steadily decreasing, we're focused on improving the efficiency and workflow of appointments to eliminate waste in the system."/>
+        <meta property="og:image" content="images/logo.png" />
+        <meta property="og:url" content="http://www.ocho.tech/" />
+        <link rel="image_src" href="images/logo.png" />
+        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
+        <title>
+            Ocho Tech
+        </title>
+        <style>
+            @font-face {
+                font-family: BigJohn;
+                src: url(../styles/fonts/BIG_JOHN.otf);
+            }
+
+            @font-face {
+                font-family: slimjoe;
+                src: url(../styles/fonts/Slim_Joe.otf);
+            }
+            
+            @font-face {
+                font-family: raleway;
+                src: url(../styles/fonts/Raleway-Light.ttf);
+            }
+
+            @font-face {
+                font-family: raleway-thin;
+                src: url(../styles/fonts/Raleway-Thin.ttf);
+            }
+
+            html {
+                background-color: rgb(135, 206, 250);
+                overflow: hidden;
+                font-weight: bold;
+            }
+            
+            .jones{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+            }
+
+            .doctor{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+            }            
+            
+            .image-cont {
+                position: absolute;
+                top: calc(50% - 150px);
+                width: 300px;
+                height: 300px;
+                -webkit-transition: all 0.5s;
+            }
+            
+            #jones-cont {
+                left: calc(25% - 150px);                
+            }
+            
+            .industry {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+            }
+            
+            .industry-cont {
+                left: calc(25% - 150px);
+                -webkit-transition: all 0.5s;
+            }
+            
+            .money-cont-cont {
+                position: absolute;
+                width: 375px;
+                height: 350px;
+                top: calc(50% - 250px);
+                left: calc(75% - 200px);
+                -webkit-transition: all 0.5s;
+            }
+            
+            .money {
+                position: absolute;
+                float: left;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 1;
+            }
+
+            .money-cont {
+                position: relative;
+                float: left;
+                width: 25%;
+                height: 50%;
+                top: 0;
+                left: 0;
+            }
+            
+            .people-cont-cont {
+                position: absolute;
+                width: 100%;
+                height: 10%;
+                top: 90%;
+                left: 0px;
+            }
+            
+            .people {
+                position: absolute;
+                float: left;
+                width: 100%;
+                height: auto;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+
+            .people-cont {
+                position: relative;
+                float: left;
+                width: 10%;
+                height: 0;
+                padding-bottom: 10%;
+                top: 0;
+                left: 0;
+            }
+            
+            
+            .pill {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0px;
+                top: 0px;
+                opacity: 0;
+            }
+            
+            .pillc {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .text-cont {
+                position: absolute;
+                width: 600px;
+                height: 100px;
+                top: calc(50% + 75px);
+                left: calc(75% - 300px);
+                opacity: 0;
+                -webkit-transition: all 0.5s;
+            }
+            
+            .money-text {
+                font-family: raleway;
+                font-size: 2em;
+                color: white;
+                text-align: center;
+            }
+            
+            .money-text-sub {
+                font-size: 2em;
+                -webkit-transition: all 0.5s;
+            }
+            
+            .money-text-num {
+                float: left;
+                position: absolute;
+                top: 0;
+                left: calc(50% - 190px);
+                font-size: 5em;
+            }
+            
+            .money-text-off {
+                margin-left: 185px;
+                margin-top: 25px;
+                font-size: 3em;
+            }
+            
+            .people-text-cont {
+                position: absolute;
+                top: 85%;
+                left: 10px;
+                width: 100%;
+                color: #EEE;
+                font-size: 1.5em;
+                font-family: raleway;
+                opacity: 0;
+                -webkit-transition: all 0.5s;
+            }
+            
+            .active-cont {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                top: calc(50% - 150px);
+                left: calc(25% - 150px);
+            }
+
+            .health-cont {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                top: calc(50% - 150px);
+                left: calc(75% - 150px);
+            }
+
+            .active {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+                opacity: 0;
+            }
+            
+            .health {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+                opacity: 0;
+            }
+            
+            .logo {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+                opacity: 0;
+            }
+            
+            .logo-cont {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                top: calc(50% - 150px);
+                left: calc(50% - 150px);
+            }
+            
+            .title {
+                text-align: center;
+                font-size: 9em;
+                position: absolute;
+                margin: 0;
+                width: 100%;
+                top: calc(40% - 1em);
+                left: -0.8em;
+                display: inline-block;
+                font-family: BigJohn;
+                opacity: 0;
+                
+                color: white;
+                
+                -webkit-transition: all 2s;
+                -m-transition: all 2s;
+                -moz-transition: all 2s;
+                transition: all 2s;
+            }
+            
+            .subtitle {
+                color: white;
+                text-align: center;
+                font-size: 0.3em;
+                position: absolute;
+                display: inline-block;
+                font-family: raleway;
+                opacity: 0;
+                margin: 0;
+                top: 27%;
+                left: 125%;
+                
+                -webkit-transition: all 1s;
+                -m-transition: all 1s;
+                -moz-transition: all 1s;
+                transition: all 1s;
+            }
+            
+            .motto {
+                position: absolute;
+                color: white;
+                text-align: center;
+                font-size: 2em;
+                font-family: raleway;
+                opacity: 0;
+                margin: 0 auto;
+                width: 150%;
+                top: calc(50% - 0.25em);
+                left: -25%;
+                -webkit-transition: all 1s;
+                -m-transition: all 1s;
+                -moz-transition: all 1s;
+                transition: all 1s;
+            }
+            
+            .sick-cont {
+                position: absolute;
+                left: 4%;
+            }
+            
+            .sick, .well {
+                opacity: 0;
+            }
+            
+            .well-cont {
+                left: 30%;
+            }
+            
+            .arrow-cont {
+                left: 24.5%;
+                top: calc(50% - 65px);
+                width: 50px;
+                height: 70px;
+            }
+            
+            .arrow {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+                transform: rotate(90deg);
+                opacity: 0;
+            }
+            
+            .jones{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: auto;
+                opacity: 0;
+            }
+
+            .doctor{
+                position: absolute;
+                top: 10px;
+                left: 0px;
+                width: 100%;
+                height: auto;
+                opacity: 0;
+            }  
+            
+            #jones-cont {
+                left: calc(25% - 150px);                
+            }
+            
+            #doctor-cont {
+                left: calc(75% - 150px);
+            }
+            
+            #pill4-cont {
+                left: calc(45% - 50px);
+                top: calc(50% - 50px);
+            }
+            
+            #pill5-cont {
+                left: calc(55% - 35px);
+                top: calc(50% - 50px);
+            }
+            
+            .pill5 {
+                height: 100px;
+                width: 115px;
+            }
+            
+            @-webkit-keyframes fadein{
+                0%   { opacity: 0; }
+                100% { opacity: 1; }
+            }
+            
+            @-webkit-keyframes fadeinup{
+                0%   { opacity: 0; top: 100px; }
+                100% { opacity: 1; top: 0px; }
+            }
+            
+            @-webkit-keyframes fadeindown{
+                0%   { opacity: 0; top: -100px; }
+                100% { opacity: 1; top: 0px; }
+            }
+            
+            @-webkit-keyframes fadeout{
+                0%   { opacity: 1; }
+                100% { opacity: 0; }
+            }
+
+            @-webkit-keyframes jumpinlarge{
+                0%   { top: -50%; left: -50%; width: 200%; height: 200%; }
+                100% { top: 0px; left: 0px; width: 100%; height: 100%; }
+            }
+            
+            @-webkit-keyframes jumpin{
+                0%   { top: 50%; left: 50%; width: 0px; height: 0px; }
+                65%   { top: -12.5%; left: -12.5%; width: 125%; height: 125%; }
+                70%   { top: -12.5%; left: -12.5%; width: 125%; height: 125%; }
+                100% { top: 0px; left: 0px; width: 100%; height: 100%; }
+            }
+            
+            @-webkit-keyframes jumpinh{
+                0%   { top: 50%; left: 50%; width: 0px; }
+                65%   { top: -12.5%; left: -12.5%; width: 125%;  }
+                70%   { top: -12.5%; left: -12.5%; width: 125%; }
+                100% { top: 0px; left: 0px; width: 100%;  }
+            }
+            
+            @-webkit-keyframes jumpinmoney{
+                0%   { top: 50%; left: 50%; width: 0px; height: 0px; }
+                65%   { top: -12.5%; left: -12.5%; width: 125%; height: 125%; }
+                70%   { top: -12.5%; left: -12.5%; width: 125%; height: 125%; }
+                100% { top: 0px; left: 0px; width: 100%; height: 100%; }
+            }
+            
+            @-webkit-keyframes jumpout{
+                0%   { top: 0px; left: 0px; width: 100%; height: 100%;  }
+                30%   { top: -12.5%; left: -12.5%; width: 125%; height: 125%; }
+                35%   { top: -12.5%; left: -12.5%; width: 125%; height: 125%; }
+                100% { top: 50%; left: 50%; width: 0px; height: 0px; }
+            }           
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="image-cont sick-cont jones-cont">
+                <img src="images/sick.png" class="sick">
+            </div>
+            <div class="image-cont arrow-cont" id="pill6-cont">
+                <img src="images/UpArrow_White.png" class="arrow">
+            </div>
+            <div class="image-cont well-cont jones-cont">
+                <img src="images/happy.png" class="well">
+            </div>
+            <div class="text-cont">
+                <div class="money-text money-text-num">$80.0</div>
+                <div class="money-text money-text-off">billion</div>
+                <div class="money-text money-text-sub">annually in nonadherance costs</div>
+            </div>
+            <div class="image-cont logo-cont">
+                <div class="title logo">OCHO<h6 class="subtitle logo">TECH</h6></div>
+                <div class="motto">ONE PILL AT A TIME</div>
+            </div>
+            
+            <div class="image-cont" id="jones-cont">
+                <img src="images/happy.png" class="jones">
+            </div>
+            <div class="image-cont" id="doctor-cont">
+                <img src="images/doctor.png" class="doctor">
+            </div>
+            <div class="image-cont pillc" id="pill4-cont">
+                <img src="images/pill1.png" class="pill4 pill">
+            </div>
+            <div class="image-cont pillc" id="pill5-cont">
+                <img src="images/Checkmark.png" class="pill5 pill">
+            </div>
+            
+            <div class="image-cont money-cont-cont">
+                <div class="image-cont money1-cont money-cont">
+                    <img src="images/DollarSign_White.png" class="money money1">
+                </div>
+                <div class="image-cont money2-cont money-cont">
+                    <img src="images/DollarSign_White.png" class="money money2">
+                </div>
+                <div class="image-cont money3-cont money-cont">
+                    <img src="images/DollarSign_white.png" class="money money3">
+                </div>
+                <div class="image-cont money4-cont money-cont">
+                    <img src="images/DollarSign_white.png" class="money money4">
+                </div>
+                <div class="image-cont money5-cont money-cont">
+                    <img src="images/DollarSign_white.png" class="money money5">
+                </div>
+                <div class="image-cont money6-cont money-cont">
+                    <img src="images/DollarSign_white.png" class="money money6">
+                </div>
+                <div class="image-cont money7-cont money-cont">
+                    <img src="images/DollarSign_white.png" class="money money7">
+                </div>
+                <div class="image-cont money8-cont money-cont">
+                    <img src="images/DollarSign_white.png" class="money money8">
+                </div>
+            </div>
+            
+            <div class="image-cont people-cont-cont">
+                <div class="image-cont people1-cont people-cont">
+                    <img src="images/jones.png" class="people people1">
+                </div>
+                <div class="image-cont people2-cont people-cont">
+                    <img src="images/doctor.png" class="people people2">
+                </div>
+                <div class="image-cont people3-cont people-cont">
+                    <img src="images/jones.png" class="people people3">
+                </div>
+                <div class="image-cont people4-cont people-cont">
+                    <img src="images/doctor.png" class="people people4">
+                </div>
+                <div class="image-cont people5-cont people-cont">
+                    <img src="images/jones.png" class="people people5">
+                </div>
+                <div class="image-cont people5-cont people-cont">
+                    <img src="images/doctor.png" class="people people6">
+                </div>
+                <div class="image-cont people5-cont people-cont">
+                    <img src="images/jones.png" class="people people7">
+                </div>
+                <div class="image-cont people5-cont people-cont">
+                    <img src="images/doctor.png" class="people people8">
+                </div>
+                <div class="image-cont people5-cont people-cont">
+                    <img src="images/jones.png" class="people people9">
+                </div>
+                <div class="image-cont people5-cont people-cont">
+                    <img src="images/doctor.png" class="people people10">
+                </div>
+            </div>
+        </div>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+        <script src="../js/progressbar.min.js"></script>
+        <script>
+            var seconds = 1000;
+            var number = 6;
+            var number_people = 1;
+            var decimal = 8;
+            
+            setTimeout(function() {
+                $(".industry").css("opacity", "1");
+                $(".industry").css("-webkit-animation", "jumpin 0.6s");
+            }, 0 * seconds);
+            
+            setTimeout(function() {
+                $(".text-cont").css("opacity", "1");
+            }, 0.5 * seconds);
+
+            setTimeout(function() {
+                $(".sick").css("opacity", "1");
+                $(".sick").css("-webkit-animation", "fadein 0.6s");
+            }, 0.5 * seconds);
+            
+            setTimeout(function() {
+                $(".arrow").css("opacity", "1");
+                $(".arrow").css("-webkit-animation", "fadein 0.6s");
+            }, 1.1 * seconds);
+            
+            setTimeout(function() {
+                $(".well").css("opacity", "1");
+                $(".well").css("-webkit-animation", "fadein 0.6s");
+            }, 1.7 * seconds);
+            
+            setTimeout(decreaseMoney, 3 * seconds);
+            setTimeout(hideMoney, 3 * seconds);
+            
+            setTimeout(showPeople, 17 * seconds);
+            
+            setTimeout(function() {
+                $(".people-text-cont").css("opacity", "1");
+                number = 6;
+            }, 6 * seconds);
+            
+            setTimeout(function() {
+                $(".money-text-sub").css("opacity", "0");
+            }, 3.6 * seconds);
+
+            setTimeout(function() {
+                $(".money-text-sub").css("opacity", "1");
+                $(".money-text-sub").text("in potential savings");
+            }, 4.2 * seconds);
+            
+            setTimeout(function() {
+                $(".money-cont-cont").css("opacity", "0");
+                $(".people-text-cont").css("opacity", "0");
+                $(".text-cont").css("opacity", "0");
+                $(".industry-cont").css("opacity", "0");
+                
+                $(".sick").css("-webkit-animation", "fadeout 0.6s");
+                $(".arrow").css("-webkit-animation", "fadeout 0.6s");
+                $(".well").css("-webkit-animation", "fadeout 0.6s");
+            }, 7 * seconds);
+            
+            setTimeout(function() {
+                $(".sick").css("opacity", "0");
+                $(".arrow").css("opacity", "0");
+                $(".well").css("opacity", "0");
+            }, 7.6 * seconds);
+            
+            setTimeout(function() {
+                $(".jones").css("opacity", "1");
+                $(".jones").css("-webkit-animation", "fadein 0.6s");
+            }, 8.4 * seconds); 
+            
+            setTimeout(function() {
+                $(".pill4").css("opacity", "1");
+                $(".pill4").css("-webkit-animation", "fadein 0.6s");
+            }, 9 * seconds); 
+            
+            setTimeout(function() {
+                $(".pill5").css("opacity", "1");
+                $(".pill5").css("-webkit-animation", "fadein 0.6s");
+            }, 9.6 * seconds);
+            
+            setTimeout(function() {
+                $(".doctor").css("opacity", "1");
+                $(".doctor").css("-webkit-animation", "fadein 0.6s");
+            }, 10.2 * seconds); 
+            
+            setTimeout(function() {                
+                $(".jones").css("-webkit-animation", "fadeout 0.6s");
+                $(".doctor").css("-webkit-animation", "fadeout 0.6s");
+                $(".pill4").css("-webkit-animation", "fadeout 0.6s");
+                $(".pill5").css("-webkit-animation", "fadeout 0.6s");
+            }, 15 * seconds);
+            
+            setTimeout(function() {
+                $(".jones").css("opacity", "0");
+                $(".doctor").css("opacity", "0");
+                $(".pill4").css("opacity", "0");
+                $(".pill5").css("opacity", "0");
+            }, 15.6 * seconds);
+            
+            setTimeout(function() {
+                $(".logo").css("opacity", "1");
+                $(".logo").css("-webkit-animation", "fadein 0.6s");
+            }, 16 * seconds);
+            
+            setTimeout(function() {
+                $(".motto").css("opacity", "1");
+                $(".motto").css("-webkit-animation", "fadein 0.6s");
+            }, 16.6 * seconds);
+            
+            function showMoney() {
+                $(".money" + (number)).css("opacity", "1");
+                $(".money" + (number)).css("-webkit-animation", "jumpin 0.3s");
+                number++;
+                if (number < 9) {
+                    setTimeout(showMoney, 0.4 * seconds);
+                }
+            }
+            
+            function printMoney() {
+                $(".money-text-num").text("$" + (decimal * 10).toFixed(1));
+                decimal += 0.1;
+                if (decimal < 8) {
+                    setTimeout(printMoney, 0.04 * seconds);
+                }
+            }
+            
+            function decreaseMoney() {
+                $(".money-text-num").text("$" + (decimal * 10).toFixed(1));
+                decimal -= 0.1;
+                if (decimal > 2) {
+                    setTimeout(decreaseMoney, 0.03 * seconds);
+                }
+            }
+            
+            function hideMoney() {
+                $(".money" + (number)).css("-webkit-animation", "jumpout 0.3s");
+                if (number < 6) {
+                    $(".money" + (number + 1)).css("opacity", "0");
+                }
+                number--;
+                if (number > -1) {
+                    setTimeout(hideMoney, 0.3 * seconds);
+                }
+            }
+            
+            function showPeople() {
+                $(".people" + (number_people)).css("opacity", "1");
+                $(".people" + (number_people)).css("-webkit-animation", "jumpinh 0.3s");
+                number_people++;
+                if (number_people < 11) {
+                    setTimeout(showPeople, 0.2 * seconds);
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,206 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta property="og:site_name" content="Ocho Tech"/>
+        <meta property="og:title" content="Homepage"/>
+        <meta property="og:description" content="In an age where the number of clinicians is steadily decreasing, we're focused on improving the efficiency and workflow of appointments to eliminate waste in the system."/>
+        <meta property="og:image" content="images/logo.png" />
+        <meta property="og:url" content="http://www.ocho.tech/" />
+        <link rel="image_src" href="images/logo.png" />
+        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
+        <title>
+            Ocho Tech
+        </title>
+        <style>
+            @font-face {
+                font-family: BigJohn;
+                src: url(../styles/fonts/BIG_JOHN.otf);
+            }
+
+            @font-face {
+                font-family: slimjoe;
+                src: url(../styles/fonts/Slim_Joe.otf);
+            }
+            
+            @font-face {
+                font-family: raleway;
+                src: url(../styles/fonts/Raleway-Light.ttf);
+            }
+
+            @font-face {
+                font-family: raleway-thin;
+                src: url(../styles/fonts/Raleway-Thin.ttf);
+            }
+
+            html {
+                background-color: rgb(135, 206, 250);
+                overflow: hidden;
+            }
+            
+            .container {
+                opacity: 0;
+                -webkit-transition: all 0.6s;
+                font-weight: bold;
+            }
+            
+            .column {
+                color: white;
+                font-size: 1.5em;
+                font-family: raleway;
+                width: 15%;
+                left: 7%;
+                margin-top: 3%;
+                position: relative;
+                height: 95%;
+                border-right: 1px solid white;
+                text-align: center;
+                float: left;
+            }
+            
+            .row {
+                margin-top: 6.75%;
+                padding-top: 6.75%;
+                color: white;
+                border-top: 1px solid white;
+                
+                -webkit-transition: all 0.6s;
+            }
+            
+            .yn {
+                margin-top: 0;
+                padding-top: 7.28%;
+                padding-bottom: 7.28%;
+                font-size: 2em;
+            }
+            
+            .yes {
+                color: #090;
+            }
+            
+            .no {
+                color: #A00;
+            }
+            
+            .title1 {
+                font-size: 2.5em;
+                color: white;
+                position: absolute;
+                width: 90%;
+                text-align: center;
+                position: absolute;
+                top: -1%;
+                left: 7.5%;
+                font-family: raleway;
+                text-decoration: underline;
+            }
+            
+            .title2 {
+                font-size: 2.5em;
+                color: white;
+                position: absolute;
+                text-align: center;
+                position: absolute;
+                top: 54%;
+                left: -6%;
+                font-family: raleway;
+                text-decoration: underline;
+                transform: rotate(-90deg);
+            }
+            
+            @-webkit-keyframes fadein{
+                0%   { opacity: 0; }
+                100% { opacity: 1; }
+            }
+            
+            @-webkit-keyframes fadeout{
+                0%   { opacity: 1; }
+                100% { opacity: 0; }
+            }
+        
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title1">Competitors</div>
+            <div class="title2">Needs Criteria</div>
+            <div class="column"></br></br>
+                <div class="row">Measures Adherance</div>
+                <div class="row verify">Physician Verification</div>
+                <div class="row" >Reminds Patient</div>
+                <div class="row fun">Rewarding to Patient</div>
+                <div class="row" style="padding-top: 14.4%; padding-bottom: 7.65%;">Easy to use</div>
+                <div class="row">Less than 3 min to Use</div>
+                <div class="row">Free for Patients</div>
+            </div>
+            <div class="column">Microchip Solution
+                <div class="row yn yes" style="margin-top: 6.75%;">O</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn no">X</div>
+                <div class="row yn no">X</div>
+                <div class="row yn no">X</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn no">X</div>
+            </div>
+            <div class="column">Video-Based Solution
+                <div class="row yn yes" style="margin-top: 6.75%;">O</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn no">X</div>
+                <div class="row yn no">X</div>
+                <div class="row yn no">X</div>
+                <div class="row yn yes">O</div>
+            </div>
+            <div class="column"></br>Reminder Apps
+                <div class="row yn no" style="margin-top: 6.75%;">X</div>
+                <div class="row yn no">X</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn no">X</div>
+                <div class="row yn no">X</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn yes">O</div>
+            </div>
+            <div class="column"></br>Smart Devices
+                <div class="row yn no" style="margin-top: 6.75%;">X</div>
+                <div class="row yn no">X</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn no">X</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn no">X</div>
+            </div>
+            <div class="column" style="border-right: none; color: green;"></br>Our Solution
+                <div class="row yn yes" style="margin-top: 6.75%;">O</div>
+                <div class="row yn yes verify-c">O</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn yes fun-c">O</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn yes">O</div>
+                <div class="row yn yes">O</div>
+            </div>
+        </div>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+        <script src="../js/progressbar.min.js"></script>
+        <script>
+            var seconds = 1000;
+            
+            setTimeout(function() {
+                $(".container").css("opacity", "1");
+            }, 1 * seconds);
+            
+            setTimeout(function() {
+                $(".verify").css("color", "green");
+                $(".verify-c").css("background-color", "white");
+            }, 9 * seconds);
+
+            setTimeout(function() {
+                $(".fun").css("color", "green");
+                $(".fun-c").css("background-color", "white");
+            }, 14 * seconds);
+
+            setTimeout(function() {
+                $(".container").css("opacity", "0");
+            }, 20 * seconds);
+            
+        </script>
+    </body>
+</html>

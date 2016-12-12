@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta property="og:site_name" content="Ocho Tech"/>
+        <meta property="og:title" content="Homepage"/>
+        <meta property="og:description" content="In an age where the number of clinicians is steadily decreasing, we're focused on improving the efficiency and workflow of appointments to eliminate waste in the system."/>
+        <meta property="og:image" content="images/logo.png" />
+        <meta property="og:url" content="http://www.ocho.tech/" />
+        <link rel="image_src" href="images/logo.png" />
+        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
+        <title>
+            Ocho Tech
+        </title>
+        <style>
+            @font-face {
+                font-family: BigJohn;
+                src: url(../styles/fonts/BIG_JOHN.otf);
+            }
+
+            @font-face {
+                font-family: slimjoe;
+                src: url(../styles/fonts/Slim_Joe.otf);
+            }
+            
+            @font-face {
+                font-family: raleway;
+                src: url(../styles/fonts/Raleway-Light.ttf);
+            }
+
+            @font-face {
+                font-family: raleway-thin;
+                src: url(../styles/fonts/Raleway-Thin.ttf);
+            }
+
+            html {
+                background-color: rgb(135, 206, 250);
+                font-weight: bold;
+            }
+            
+            .text-cont {
+                position: absolute;
+                width: 95%;
+                height: 100%;
+                top: calc(50% - 14em);
+            }
+            
+            .text {
+                color: white;
+                font-family: raleway;
+                font-size: 3.5em;
+                text-align: left;
+            }
+            
+            @-webkit-keyframes fadein{
+                0%   { opacity: 0; }
+                100% { opacity: 1; }
+            }
+
+            @-webkit-keyframes jumpinlarge{
+                0%   { top: -50%; left: -50%; width: 200%; height: 200%; }
+                100% { top: 0px; left: 0px; width: 100%; height: 100%; }
+            }
+            
+            @-webkit-keyframes jumpin{
+                0%   { top: 50%; left: 50%; width: 0px; height: 0px; }
+                65%   { top: -12.5%; left: -12.5%; width: 125%; height: 125%; }
+                70%   { top: -12.5%; left: -12.5%; width: 125%; height: 125%; }
+                100% { top: 0px; left: 0px; width: 100%; height: 100%; }
+            }
+            
+            @-webkit-keyframes jumpout{
+                0%   { top: 0px; left: 0px; width: 100%; height: 100%;  }
+                30%   { top: -12.5%; left: -12.5%; width: 125%; height: 125%; }
+                35%   { top: -12.5%; left: -12.5%; width: 125%; height: 125%; }
+                100% { top: 50%; left: 50%; width: 0px; height: 0px; }
+            }
+                        
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="text-cont" id="text1-cont">
+                <div class="text1 text"></div>
+            </div>
+            
+        </div>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+        <script src="../js/progressbar.min.js"></script>
+        <script>
+            var seconds = 1000;
+            var needs = "Therefore, physicians need a way to verify and motivate chronic coronary artery disease (CAD) patients to take their medications as prescribed in order to improve medication adherence thereby reducing patient morbidity and associated healthcare costs.";
+            var counter = 0;
+            var off = true;
+            
+            setTimeout(addChars, 1 * seconds);
+            
+            function addChars() {
+                
+                
+                if (off) {
+                    $(".text1").text($(".text1").text().split("|")[0] + needs[counter] + "|");
+                } else {
+                    $(".text1").text($(".text1").text().split("|")[0] + needs[counter]);                    
+                }
+                
+                counter++;
+                if (counter < needs.length) {
+                    setTimeout(addChars, 50);
+                } else {
+                    blink();
+                }
+            }
+
+            function blink() {
+                if (counter % 10 == 0) {
+                    off = !off;
+                } 
+                counter++;
+                
+                if (off) {
+                    $(".text1").text($(".text1").text().split("|")[0] + "|");
+                } else {
+                    $(".text1").text($(".text1").text().split("|")[0]);                    
+                }
+                
+                if (counter < 1000) {
+                    setTimeout(blink, 50);
+                }
+            }
+            
+        </script>
+    </body>
+</html>

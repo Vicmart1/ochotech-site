@@ -1,0 +1,453 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta property="og:site_name" content="Ocho Tech"/>
+        <meta property="og:title" content="Homepage"/>
+        <meta property="og:description" content="In an age where the number of clinicians is steadily decreasing, we're focused on improving the efficiency and workflow of appointments to eliminate waste in the system."/>
+        <meta property="og:image" content="images/logo.png" />
+        <meta property="og:url" content="http://www.ocho.tech/" />
+        <link rel="image_src" href="images/logo.png" />
+        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
+        <title>
+            Ocho Tech
+        </title>
+        <style>
+            @font-face {
+                font-family: BigJohn;
+                src: url(../styles/fonts/BIG_JOHN.otf);
+            }
+
+            @font-face {
+                font-family: slimjoe;
+                src: url(../styles/fonts/Slim_Joe.otf);
+            }
+            
+            @font-face {
+                font-family: raleway;
+                src: url(../styles/fonts/Raleway-Light.ttf);
+            }
+
+            @font-face {
+                font-family: raleway-thin;
+                src: url(../styles/fonts/Raleway-Thin.ttf);
+            }
+
+            html {
+                background-color: rgb(135, 206, 250);
+                font-weight: bold;
+            }
+            
+            .jones{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                opacity: 1;
+                -webkit-animation: jumpin 0.6s;
+                -webkit-transition: all 0.5s;
+            }
+
+            .doctor{
+                position: absolute;
+                top: 10px;
+                left: 0px;
+                width: 100%;
+                opacity: 0;
+            }            
+            
+            .image-cont {
+                position: absolute;
+                top: calc(50% - 150px);
+                width: 300px;
+                height: 300px;
+                -webkit-transition: all 0.5s;
+            }
+            
+            #jones-cont {
+                left: calc(25% - 150px);                
+            }
+            
+            #doctor-cont {
+                left: calc(75% - 150px);
+            }
+            
+            #pill1-cont {
+                left: calc(70% - 65px);
+                top: calc(25% - 50px);
+            }
+            
+            #pill2-cont {
+                left: calc(80% - 65px);
+                top: calc(50% - 50px);
+            }
+            
+            #pill3-cont {
+                left: calc(70% - 65px);
+                top: calc(75% - 50px);
+            }
+            
+            #pill4-cont {
+                left: calc(45% - 50px);
+                top: calc(50% - 50px);
+            }
+            
+            #pill5-cont {
+                left: calc(55% - 50px);
+                top: calc(50% - 50px);
+            }
+            
+            #cross1-cont {
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                top: calc(50% - 200px);
+                left: calc(50% - 200px);
+            }
+            
+            #cross2-cont {
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                top: calc(50% - 200px);
+                left: calc(75% - 200px);
+            }
+            
+            .cross {
+                width: 100%;
+                
+                -webkit-transition: all 0.5s;
+                opacity: 0;
+                position: absolute; 
+            }
+            
+            .pill {
+                position: absolute;
+                width: 100%;
+                left: 0px;
+                top: 0px;
+                opacity: 0;
+                
+            }
+            
+            .pillc {
+                width: 100px;
+                height: 100px;
+            }
+
+            .progress {
+                width: 100%;
+                font-family: raleway;
+                font-size: 5em;
+                text-align: center;
+                
+                -webkit-transition: all 0.25s;
+                
+                opacity: 0;
+            }
+            
+            .progress-cont {
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                top: calc(50% - 200px);
+                left: calc(75% - 200px);
+            }
+            
+            .progress-subtitle {
+                font-size: 0.4em;
+            }
+            
+            .small-subtitle {
+                font-size: 0.3em;
+            }
+            
+            .progress > svg {
+                display: block;
+            }
+            
+            .pill-text {
+                font-family: raleway;
+                font-size: 3em;
+                color: white;
+                top: 20px;
+                opacity: 0;
+                
+                -webkit-transition: all 0.5s;
+            }
+            
+            .pill1-text{
+                position: absolute;
+                float: left;
+                right: -320px;
+            }
+
+            .pill2-text {
+                position: absolute;
+                float: right;
+                left: -360px;
+            }
+
+            .pill3-text{
+                position: absolute;
+                float: left;
+                right: -220px;
+            }
+            
+            .pill5 {
+                height: 150%;
+                width: auto;
+                top: -20%;
+                left: 25%;
+            }
+            
+            @-webkit-keyframes fadein{
+                0%   { opacity: 0; }
+                100% { opacity: 1; }
+            }
+            
+            @-webkit-keyframes fadeout{
+                0%   { opacity: 1; }
+                100% { opacity: 0; }
+            }
+
+            @-webkit-keyframes jumpinlarge{
+                0%   { top: -50%; left: -50%; width: 200%; }
+                100% { top: 0px; left: 0px; width: 100%; }
+            }
+            
+            @-webkit-keyframes jumpin{
+                0%   { top: 50%; left: 50%; width: 0px; }
+                65%   { top: -12.5%; left: -12.5%; width: 125%; }
+                70%   { top: -12.5%; left: -12.5%; width: 125%; }
+                100% { top: 0px; left: 0px; width: 100%;  }
+            }
+            
+            @-webkit-keyframes jumpinh{
+                0%   { top: 50%; left: 50%; height: 0px; }
+                65%   { top: -12.5%; left: -12.5%; height: 125%; }
+                70%   { top: -12.5%; left: -12.5%; height: 125%; }
+                100% { top: 0px; left: 0px; height: 100%;  }
+            }
+            
+            @-webkit-keyframes jumpind{
+                0%   { top: calc(50% + 10px); left: 50%; width: 0px; }
+                65%   { top: calc(-12.5% + 10px); left: -12.5%; width: 125%; }
+                70%   { top: calc(-12.5% + 10px); left: -12.5%; width: 125%; }
+                100% { top: 10px; left: 0px; width: 100%;  }
+            }
+            
+            @-webkit-keyframes jumpout{
+                0%   { top: 0px; left: 0px; width: 100%; }
+                30%   { top: -12.5%; left: -12.5%; width: 125%; }
+                35%   { top: -12.5%; left: -12.5%; width: 125%;}
+                100% { top: 50%; left: 50%; width: 0px;  }
+            }
+            
+            @-webkit-keyframes jumpouth{
+                0%   { top: 0px; left: 0px; height: 100%; }
+                30%   { top: -12.5%; left: -12.5%; height: 125%; }
+                35%   { top: -12.5%; left: -12.5%; height: 125%;}
+                100% { top: 50%; left: 50%; height: 0px;  }
+            }
+                        
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="image-cont" id="jones-cont">
+                <img src="images/jones.png" class="jones">
+            </div>
+            <div class="image-cont" id="doctor-cont">
+                <img src="images/doctor.png" class="doctor">
+            </div>
+            <div class="image-cont pillc" id="pill1-cont">
+                <img src="images/pills/pill11.png" class="pill1 pill">
+                <div class="pill1-text pill-text">Hypertension</div>
+            </div>
+            <div class="image-cont pillc" id="pill2-cont">
+                <img src="images/pills/pill12.png" class="pill2 pill">
+                <div class="pill2-text pill-text">Hyperlipidemia</div>
+            </div>
+            <div class="image-cont pillc" id="pill3-cont">
+                <img src="images/pills/pill13.png" class="pill3 pill">
+                <div class="pill3-text pill-text">Diabetes</div>
+            </div>
+            <div class="image-cont pillc" id="pill4-cont">
+                <img src="images/pills/pill12.png" class="pill4 pill">
+            </div>
+            <div class="image-cont pillc" id="pill5-cont">
+                <img src="images/QuestionMark_White.png" class="pill5 pill">
+            </div>
+            
+            <div class="image-cont cross-c" id="cross1-cont">
+                <img src="images/NoSign_White.png" class="cross1 cross">
+            </div>
+            <div class="image-cont cross-c" id="cross2-cont">
+                <img src="images/NoSign_White.png" class="cross2 cross">
+            </div>
+            
+            <div class="progress-cont">
+                <div class="progress" id="population"></div>
+            </div>
+        </div>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+        <script src="../js/progressbar.min.js"></script>
+        <script>
+            var seconds = 1000;
+            var newProg = 0;
+
+            var population = new ProgressBar.Circle('#population', {
+                color: '#FFF',
+                duration: 5000,
+                strokeWidth: 10,
+                easing: 'easeInOut',
+
+                step: function(state, circle) {
+                    var value = 0;
+                    if (newProg == 0) {
+                        value = Math.round(10 * (circle.value() * 16.8))/10.0;
+                        circle.setText(value + "</br><span class='progress-subtitle'>million CAD patients</span>");
+                    } else {
+                        value = Math.round(circle.value() * 100);
+                        circle.setText("<span class='progress-subtitle'>up to</span></br>" + value + "%</br><span class='progress-subtitle'>of patients do not adhere</span>");
+                    }
+                }
+            });
+            
+            population.animate(0);
+                        
+            setTimeout(function() {
+                $(".progress").css("opacity", 1);
+                population.animate(1);
+            }, 5 * seconds); 
+            
+            setTimeout(function() {
+                $(".progress").css("opacity", 0);
+            }, 13 * seconds); 
+            
+            setTimeout(function() {
+                $(".progress").css("opacity", 0);
+                $(".pill1").css("opacity", "1");
+                $(".pill1").css("-webkit-animation", "jumpin 0.6s");
+                $(".pill1-text").css("opacity", "1");
+                population.animate(0);
+            }, 13.6 * seconds);        
+
+            setTimeout(function() {
+                $(".pill2").css("opacity", "1");
+                $(".pill2").css("-webkit-animation", "jumpin 0.6s");
+                $(".pill2-text").css("opacity", "1");
+            }, 14.2 * seconds);  
+            
+            setTimeout(function() {
+                $(".pill3").css("opacity", "1");
+                $(".pill3").css("-webkit-animation", "jumpin 0.6s");
+                $(".pill3-text").css("opacity", "1");
+            }, 14.8 * seconds); 
+
+            setTimeout(function() {
+                $(".pill1").css("-webkit-animation", "jumpout 0.6s");
+                $(".pill1-text").css("opacity", "0");
+                population.animate(0.8);
+            }, 18 * seconds);     
+            
+            setTimeout(function() {
+                $(".pill1").css("opacity", "0");
+                $(".pill2").css("-webkit-animation", "jumpout 0.6s");
+                $(".pill2-text").css("opacity", "0");
+            }, 18.6 * seconds); 
+            
+            setTimeout(function() {
+                $(".pill2").css("opacity", "0");
+                $(".pill3").css("-webkit-animation", "jumpout 0.6s");
+                $(".pill3-text").css("opacity", "0");
+                newProg = 1;
+            }, 19.2 * seconds); 
+            
+            setTimeout(function() {
+                $(".pill3").css("opacity", "0");
+            }, 19.8 * seconds);             
+            
+            setTimeout(function() {
+                $(".progress").css("opacity", 1);
+            }, 19.8 * seconds); 
+
+            setTimeout(function() {
+                $(".progress").css("opacity", 0);
+                $(".pill1").css("opacity", "1");
+                $(".pill1").css("-webkit-animation", "fadein 0.6s");
+                $(".pill1-text").css("opacity", "1");
+                $(".pill2").css("opacity", "1");
+                $(".pill2").css("-webkit-animation", "fadein 0.6s");
+                $(".pill2-text").css("opacity", "1");
+                $(".pill3").css("opacity", "1");
+                $(".pill3").css("-webkit-animation", "fadein 0.6s");
+                $(".pill3-text").css("opacity", "1");
+            }, 25 * seconds);     
+            
+            setTimeout(function() {
+                $(".cross2").css("opacity", "1");
+                $(".cross2").css("-webkit-animation", "jumpinlarge 0.6s");
+            }, 26.2 * seconds);
+            
+            setTimeout(function() {
+                $(".cross2").css("opacity", "0");
+                $(".cross2").css("-webkit-animation", "jumpout 0.6s");
+                $(".pill1").css("-webkit-animation", "jumpout 0.6s");
+                $(".pill1-text").css("opacity", "0");
+                $(".pill2").css("-webkit-animation", "jumpout 0.6s");
+                $(".pill2-text").css("opacity", "0");
+                $(".pill2").css("opacity", "0");
+                $(".pill3").css("-webkit-animation", "jumpout 0.6s");
+                $(".pill3-text").css("opacity", "0");
+            }, 27.4 * seconds); 
+            
+            
+            
+            setTimeout(function() {
+                $(".pill1").css("opacity", "0");
+                $(".pill2").css("opacity", "0");
+                $(".pill3").css("opacity", "0");
+                $(".doctor").css("opacity", "1");
+                $(".doctor").css("-webkit-animation", "jumpind 0.6s");
+            }, 28 * seconds); 
+            
+            setTimeout(function() {
+                $(".pill4").css("opacity", "1");
+                $(".pill4").css("-webkit-animation", "jumpin 0.6s");
+            }, 31 * seconds); 
+            
+            
+            setTimeout(function() {
+                $(".pill5").css("opacity", "1");
+                $(".pill5").css("-webkit-animation", "fadein 0.6s");
+            }, 31.6 * seconds);
+            
+            setTimeout(function() {
+                $(".cross1").css("opacity", "1");
+                $(".cross1").css("-webkit-animation", "jumpinlarge 0.6s");
+            }, 35 * seconds);
+            
+            setTimeout(function() {
+                $(".cross1").css("-webkit-animation", "jumpout 0.6s");
+                $(".cross1").css("opacity", "0");
+            }, 38 * seconds);
+            
+            setTimeout(function() {
+                $(".pill4").css("-webkit-animation", "jumpout 0.6s");
+                $(".pill5").css("-webkit-animation", "fadeout 0.6s");
+            }, 38 * seconds);
+            
+            setTimeout(function() {
+                $(".pill4").css("opacity", "0");
+                $(".pill5").css("opacity", "0");
+                //$("#jones-cont").css("left", "-300px");
+                //$(".doctor").css("-webkit-animation", "jumpout 0.6s");
+            }, 38.6 * seconds);
+            
+            setTimeout(function() {
+                //$(".doctor").css("opacity", "0");
+            }, 39.2 * seconds);
+        </script>
+    </body>
+</html>
