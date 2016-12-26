@@ -75,6 +75,10 @@
                 transition: all 2s;
             }
             
+            .fadein-title {
+                top: calc(70% - 1em);
+            }
+            
             .subtitle {
                 color: white;
                 text-align: center;
@@ -84,7 +88,7 @@
                 font-family: raleway;
                 opacity: 0;
                 margin: 0;
-                bottom: 0.5em;
+                bottom: 0.65em;
                 
                 -webkit-transition: all 1s;
                 -m-transition: all 1s;
@@ -196,6 +200,20 @@
                 overflow: hidden;
             }
             
+            .img-cursor {
+                background-color: rgb(135, 206, 250);  
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                border-radius: 100%;
+                visibility: hidden;
+                
+                -webkit-transition: all 0.5s;
+                -m-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+            
             .img-title {
                 font-size: 1.25em;
                 text-align: center;
@@ -245,7 +263,7 @@
                 cursor: hand;
                 pointer: hand;
                 background-color: white;
-                color: rgb(255, 102, 101);
+                color: rgb(135, 206, 250); "rgb(255, 102, 101);
             }
             
             
@@ -299,6 +317,26 @@
                 border: none;
             }
             
+            .section {
+                text-align: left; 
+                margin-left: 47px;
+                margin-bottom: 10px;
+            }
+            
+            .center-item {
+                width: 30%;
+                left: 40%;
+                height: 40%;
+                visibility: hidden;
+                position: absolute;
+            }
+            
+            .center-item-title {
+                text-align: center;
+                width: 40%;
+                font-size: 2em;
+            }
+            
             @media screen and (max-width: 1000px) {
                 .img-frame {
                     width: 50%;
@@ -324,6 +362,10 @@
                     margin-right: 0px;
                 }
                 
+                .section {
+                    margin-left: 20px;
+                }
+                
                 .footnote {
                     margin-left: 20px;
                     font-family: raleway;
@@ -339,6 +381,9 @@
                     font-size: 4em;
                 }
                 
+                .fadein-title {
+                    top: calc(70% - 0.6em);
+                }                
                 .motto {
                     font-size: 1em;
                 }
@@ -410,7 +455,10 @@
         </div>
         <div class="container members" id="members">
             <h1 class="section-title">Our Team</h1>
-            <div class='img-description' style="text-align: left; margin-left: 47px;margin-bottom: 10px;">Ocho Tech started as a vision in five Johns Hopkins students - a vision to disrupt medicine.</div>
+            <div class='img-description section'>Ocho Tech started as a vision in five Johns Hopkins students - a vision to disrupt medicine.</div>
+            <div class="img-cursor"></div>
+            <div class='img-title center-item center-item-title'>Graeme Steller</div>
+            <div class='img-description center-item'>Graeme Steller is a senior BME and the founder of Ocho. He competes in international yo-yo competitions and serves crab cakes on his friend’s food truck. His favorite musical artist is Justin Bieber and is proud to admit it. </div>
             <div class="img-frame">
                 <img class='member-img' src="images/graeme-s.png">
                 <div class='img-title'>Graeme Steller</div>
@@ -487,10 +535,36 @@
         <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
         <script src="js/progressbar.min.js"></script>
         <script>
-            var width = $(window).innerWidth;
-            var height = $(window).innerHeight;
+            var width = window.innerWidth;
+            var height = window.innerHeight;
             var firstProg = false;
             var secondProg = false;
+            var active = -1;
+            
+            var isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i);
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i);
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                },
+                Opera: function() {
+                    return navigator.userAgent.match(/Opera Mini/i);
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+                },
+                any: function() {
+                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                }
+            };
+
+            function isMobile2() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            }
             
             var interview = new ProgressBar.Circle('#interviews', {
                 color: '#FFF',
@@ -549,7 +623,8 @@
             setTimeout(function() {
                 $(".intro").css("opacity", 0);
                 $(".title").css("opacity", 1);
-                $(".title").css("top", "calc(70% - 1em)");
+                //$(".title").css("top", "calc(70% - 1em)");
+                $(".title").addClass("fadein-title");
                 setTimeout(function() {
                     $(".subtitle").css("opacity", 1);
                     setTimeout(function() {
@@ -558,7 +633,7 @@
                         $(".member-link").css("opacity", 1);    
                     }, 1000);
                 }, 1000);
-            }, 2000);
+            }, 1000);
             
             function mailTo() {
                 window.location.href = "mailto:dtocho@jhu.edu";
@@ -572,6 +647,68 @@
                 } else {
                     $(".member-link").css("opacity", 0);    
                 }
+            });
+            
+            if(!isMobile.any() && !isMobile2() && width > 1000) {
+                $(".members").css("height", height * 1.6);
+                $(".img-frame").css("position", "absolute");
+                $(".center-item").css("visibility", "visible");
+                $(".img-frame").children(".img-title").css("visibility", "hidden");
+                $(".img-frame").children(".img-description").css("visibility", "hidden");
+                $(".img-frame").eq(i).css("margin", "0");
+                $(".img-frame").eq(i).css("padding", "0");
+                $(".img-frame").css("width", width/4);
+                $(".img-frame").css("height", width/4);
+                var frame_width = parseInt($(".img-frame").css("width"));
+                var frame_height = parseInt($(".img-frame").css("height"));
+                var center_width = (width/2) - (frame_width/2);
+                
+                $(".center-item").css("left", center_width - 100);
+                $(".center-item").css("top", center_width + 100 + (height * 2) + 25);
+                $(".center-item-title").css("top", center_width + 50 + (height * 2) + 25);
+                
+                for (var i = 0; i < 9; i++) {
+                    $(".img-frame").eq(i).css("left", (Math.cos(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.4)) + center_width);
+                    $(".img-frame").eq(i).css("top", (Math.sin(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.4)) + center_width + (height * 2) + 35);
+                }
+                
+                var x_loc = parseInt($(".img-frame").eq(0).css("left")) + parseInt($(".img-frame").eq(0).css("width"))/2;
+                var y_loc = parseInt($(".img-frame").eq(0).css("top")) + parseInt($(".img-frame").eq(0).css("height"))/2;
+
+                var width = parseInt($(".img-frame").eq(0).css("width")) - 80;
+                var height = parseInt($(".img-frame").eq(0).css("height")) - 80;
+                
+                $(".img-cursor").css("visibility", "visible");
+                $(".img-cursor").css("width", width);
+                $(".img-cursor").css("height", height);
+
+                $(".img-cursor").css("left", x_loc - width/2);
+                $(".img-cursor").css("top", y_loc - (height/2) - 30);
+            }
+            
+            $(".member-img").hover(function() {
+                //$(".member-img").eq(active).css("border", "none");
+                //$(".member-img").eq(active).css("margin", "5% 15%");
+                                
+                active = $(".member-img").index($(this));
+                
+                //$(this).css("border", "5px solid rgb(135, 206, 250)");
+                //$(this).css("margin", "calc(5% - 5px) calc(15% - 5px)");
+                
+                var x_loc = parseInt($(this).parent().css("left")) + parseInt($(this).parent().css("width"))/2;
+                var y_loc = parseInt($(this).parent().css("top")) + parseInt($(this).parent().css("height"))/2;
+
+                var width = parseInt($(this).parent().css("width")) * 0.75;
+                var height = parseInt($(this).parent().css("height")) * 0.75;
+                
+                $(".img-cursor").css("width", width);
+                $(".img-cursor").css("height", height);
+
+                $(".img-cursor").css("left", x_loc - width/2);
+                $(".img-cursor").css("top", y_loc - (height/2) - 30);
+                
+                $(".center-item").text($(this).parent().children().eq(2).text());
+                $(".center-item-title").text($(this).parent().children().eq(1).text());
             });
             
             determinePos($(window));
@@ -602,6 +739,7 @@
                     scrollTop: $("#video").offset().top
                 }, 500);
             });
+
         </script>
     </body>
 </html>
