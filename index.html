@@ -649,41 +649,66 @@
                 }
             });
             
-            if(!isMobile.any() && !isMobile2() && width > 1000) {
-                $(".members").css("height", height * 1.6);
-                $(".img-frame").css("position", "absolute");
-                $(".center-item").css("visibility", "visible");
-                $(".img-frame").children(".img-title").css("visibility", "hidden");
-                $(".img-frame").children(".img-description").css("visibility", "hidden");
-                $(".img-frame").eq(i).css("margin", "0");
-                $(".img-frame").eq(i).css("padding", "0");
-                $(".img-frame").css("width", width/4);
-                $(".img-frame").css("height", width/4);
-                var frame_width = parseInt($(".img-frame").css("width"));
-                var frame_height = parseInt($(".img-frame").css("height"));
-                var center_width = (width/2) - (frame_width/2);
-                
-                $(".center-item").css("left", center_width - 100);
-                $(".center-item").css("top", center_width + 100 + (height * 2) + 25);
-                $(".center-item-title").css("top", center_width + 50 + (height * 2) + 25);
-                
-                for (var i = 0; i < 9; i++) {
-                    $(".img-frame").eq(i).css("left", (Math.cos(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.4)) + center_width);
-                    $(".img-frame").eq(i).css("top", (Math.sin(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.4)) + center_width + (height * 2) + 35);
+            function resizeWheel() {
+                var width = window.innerWidth;
+                var height = window.innerHeight;
+
+                if(!isMobile.any() && !isMobile2() && width > 1000) {
+                    $(".img-frame").css("position", "absolute");
+                    $(".center-item").css("visibility", "visible");
+                    $(".img-frame").children(".img-title").css("visibility", "hidden");
+                    $(".img-frame").children(".img-description").css("visibility", "hidden");
+                    $(".img-frame").css("margin", "0");
+                    $(".img-frame").css("padding", "0");
+                    $(".img-frame").css("width", width/4);
+                    $(".img-frame").css("height", width/4);
+                    var frame_width = parseInt($(".img-frame").css("width"));
+                    var frame_height = parseInt($(".img-frame").css("height"));
+                    var center_width = (width/2) - (frame_width/2);
+
+                    $(".center-item").css("left", center_width * 0.80);
+                    $(".center-item").css("top", (center_width * 1.2) + (height * 2) + 25);
+                    $(".center-item-title").css("top", (center_width * 1.1) + (height * 2) + 25);
+                    $(".members").css("height", (center_width * 2) + 150);
+
+                    for (var i = 0; i < 9; i++) {
+                        $(".img-frame").eq(i).css("left", (Math.cos(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.4)) + center_width);
+                        $(".img-frame").eq(i).css("top", (Math.sin(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.4)) + center_width + (height * 2) + 35);
+                    }
+
+                    var x_loc = parseInt($(".img-frame").eq(0).css("left")) + parseInt($(".img-frame").eq(0).css("width"))/2;
+                    var y_loc = parseInt($(".img-frame").eq(0).css("top")) + parseInt($(".img-frame").eq(0).css("height"))/2;
+
+                    var width = parseInt($(".img-frame").eq(0).css("width")) - 80;
+                    var height = parseInt($(".img-frame").eq(0).css("height")) - 80;
+
+                    $(".img-cursor").css("visibility", "visible");
+                    $(".img-cursor").css("width", width);
+                    $(".img-cursor").css("height", height);
+
+                    $(".img-cursor").css("left", x_loc - width/2);
+                    $(".img-cursor").css("top", y_loc - (height/2) - 30);
+                } else if (!isMobile.any() && !isMobile2() && width > 600) {
+                    $(".img-frame").css("position", "relative");
+                    $(".center-item").css("visibility", "hidden");
+                    $(".img-frame").children(".img-title").css("visibility", "visible");
+                    $(".img-frame").children(".img-description").css("visibility", "visible");
+                    $(".img-frame").css("width", "50%");
+                    $(".img-frame").css("height", "50%");
+                    $(".img-frame").css("left", 0);
+                    $(".img-frame").css("top", 0);
+                    $(".img-cursor").css("visibility", "hidden");
+                } else {
+                    $(".img-frame").css("position", "relative");
+                    $(".center-item").css("visibility", "hidden");
+                    $(".img-frame").children(".img-title").css("visibility", "visible");
+                    $(".img-frame").children(".img-description").css("visibility", "visible");
+                    $(".img-frame").css("width", "100%");
+                    $(".img-frame").css("height", "100%");
+                    $(".img-frame").css("left", 0);
+                    $(".img-frame").css("top", 0);
+                    $(".img-cursor").css("visibility", "hidden");                    
                 }
-                
-                var x_loc = parseInt($(".img-frame").eq(0).css("left")) + parseInt($(".img-frame").eq(0).css("width"))/2;
-                var y_loc = parseInt($(".img-frame").eq(0).css("top")) + parseInt($(".img-frame").eq(0).css("height"))/2;
-
-                var width = parseInt($(".img-frame").eq(0).css("width")) - 80;
-                var height = parseInt($(".img-frame").eq(0).css("height")) - 80;
-                
-                $(".img-cursor").css("visibility", "visible");
-                $(".img-cursor").css("width", width);
-                $(".img-cursor").css("height", height);
-
-                $(".img-cursor").css("left", x_loc - width/2);
-                $(".img-cursor").css("top", y_loc - (height/2) - 30);
             }
             
             $(".member-img").hover(function() {
@@ -740,6 +765,13 @@
                 }, 500);
             });
 
+            $( window ).resize(function() {
+                resizeWheel();
+            });
+            
+            $(document).ready(function() {
+                resizeWheel();
+            });
         </script>
     </body>
 </html>
