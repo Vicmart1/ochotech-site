@@ -504,6 +504,13 @@
                 color: red;
             }
             
+            .found-text {
+                width: 60px;
+                left: calc(50% - 30px);
+                border: 1px solid red;
+                color: red;
+            }
+            
             .center-group {
                 position: absolute;
                 height: 15px;
@@ -537,12 +544,12 @@
             <canvas class="member-canvas"></canvas>
             <h1 class="section-title">Our Team</h1>
             <div class='img-description section'>Ocho Tech started as a vision in five Johns Hopkins students - a vision to disrupt medicine.</div>
-            <div class='img-group men-text center-item center-group'>Leader</div>
+            <div class='img-group found-text center-item center-group'>Founder</div>
             <div class='img-title center-item center-item-title'>Graeme Steller</div>
             <div class='img-description center-item'>Graeme Steller is a senior BME and the founder of Ocho. He competes in international yo-yo competitions and serves crab cakes on his friend’s food truck. His favorite musical artist is Justin Bieber and is proud to admit it. </div>
             <div class="img-frame">
                 <img class='member-img mentor' src="images/graeme-s.png">
-                <div class='img-group men-text'>Leader</div>
+                <div class='img-group found-text'>Founder</div>
                 <div class='img-title'>Graeme Steller</div>
                 <div class='img-description'>Graeme Steller is a senior BME and the founder of Ocho. He competes in international yo-yo competitions and serves crab cakes on his friend’s food truck. His favorite musical artist is Justin Bieber and is proud to admit it. </div>
             </div>
@@ -882,6 +889,11 @@
                         $(".center-group").css("border-color", "red");
                         $(".center-group").css("width", "50px");
                         $(".center-group").css("margin-left", "5px");
+                    } else if ($(this).parent().children().eq(1).hasClass("found-text")) {
+                        $(".center-group").css("color", "red");
+                        $(".center-group").css("border-color", "red");
+                        $(".center-group").css("width", "60px");
+                        $(".center-group").css("margin-left", "0px");
                     }
                 }
             });
