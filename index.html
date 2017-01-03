@@ -6,6 +6,11 @@
         <meta property="og:description" content="In an age where the number of clinicians is steadily decreasing, we're focused on improving the efficiency and workflow of appointments to eliminate waste in the system."/>
         <meta property="og:image" content="images/logo-2.png" />
         <meta property="og:url" content="http://www.ocho.tech/" />
+
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />  
+        <meta name="viewport" content="width=device-width; initial-scale = 1.0; maximum-scale=1.0; user-scalable=no" />        
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        
         <link rel="image_src" href="images/logo-2.png" />
         <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
         <title>
@@ -38,6 +43,7 @@
             
             body, html {
                 margin: 0px;
+                overflow-x: hidden;
             }
             
             .container {
@@ -575,7 +581,7 @@
                 <img class='member-img research' src="images/saki-s.png">
                 <div class='img-group res-text'>Research</div>
                 <div class='img-title'>Saki Fujita</div>
-                <div class='img-description'>Saki has one of the most beautiful brains we've ever encountered. As a Japanese National Go champion, Saki tackles even the most difficult of problems with analytical precision. With a JHU pre-med background, Saki serves a perfect role as the team lead for Ocho Research. Saki's busy brain has no time for music preferences, so she'll always be listening to the top hits!</div>                
+                <div class='img-description'>As a Japanese National Go champion, Saki tackles even the most difficult of problems with analytical precision. With a JHU pre-med background, she serves a perfect role as the team lead for Ocho Research. Saki's busy brain has no time for music preferences, so she'll always be listening to the top hits!</div>                
             </div>
             <div class="img-frame">
                 <img class='member-img research' src="images/isaree.jpg">
@@ -751,7 +757,7 @@
                 var width = window.innerWidth;
                 var height = window.innerHeight;
 
-                if(!isMobile.any() && !isMobile2() && width > 1000) {
+                if(!isMobile.any() && !isMobile2() && width > 1100) {
                     $(".img-frame").css("position", "absolute");
                     $(".img-frame").children(".img-title").css("visibility", "hidden");
                     $(".img-frame").children(".img-group").css("visibility", "hidden");
@@ -766,11 +772,11 @@
                     var center_width = (width/2) - (frame_width/2);
 
                     $(".center-item").css("left", center_width * 0.80);
-                    $(".center-item").css("top", (center_width * 1.2) + (height * 2) + 25);
-                    $(".center-item-title").css("top", (center_width * 1.1) + (height * 2) + 25);
+                    $(".center-item").css("top", (center_width * 1.15) + (height * 2) + 55);
+                    $(".center-item-title").css("top", (center_width * 1.05) + (height * 2) + 55);
                     $(".center-group").css("left", center_width * 1.27);
-                    $(".center-group").css("top", (center_width * 1.05) + (height * 2) + 25);
-                    $(".members").css("height", (center_width * 2) + 175);
+                    $(".center-group").css("top", (center_width * 1.0) + (height * 2) + 55);
+                    $(".members").css("height", (center_width * 2) + 200);
                     $(".member-canvas").css("height", (center_width * 2) + 175);
                     $(".group-child").attr("cx", center_width * 1.33);
                     $(".group-child").attr("cy", (center_width * 1.33)  + (height * 2) + 5);
@@ -792,8 +798,8 @@
                     
                     
                     for (var i = 0; i < 9; i++) {
-                        $(".img-frame").eq(i).css("left", (Math.cos(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.4)) + center_width);
-                        $(".img-frame").eq(i).css("top", (Math.sin(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.4)) + center_width + (height * 2) + 35);
+                        $(".img-frame").eq(i).css("left", (Math.cos(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.35)) + center_width);
+                        $(".img-frame").eq(i).css("top", (Math.sin(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.35)) + center_width + (height * 2) + 45);
                     }
 
                     var x_loc = parseInt($(".img-frame").css("left")) + parseInt($(".img-frame").eq(0).css("width"))/2;
@@ -811,14 +817,15 @@
                     
                     wheel = 1;
                 } else if (!isMobile.any() && !isMobile2() && width > 600) {
+                    $(".member").css("height", "auto");
                     $(".member-img").css("opacity", "1");
                     $(".img-frame").css("position", "relative");
                     $(".center-item").css("visibility", "hidden");
                     $(".img-frame").children(".img-title").css("visibility", "visible");
                     $(".img-frame").children(".img-group").css("visibility", "visible");
                     $(".img-frame").children(".img-description").css("visibility", "visible");
-                    $(".img-frame").css("width", "50%");
-                    $(".img-frame").css("height", "50%");
+                    $(".img-frame").css("width", "49%");
+                    $(".img-frame").css("height", "auto");
                     $(".img-frame").css("left", 0);
                     $(".img-frame").css("top", 0);
                     $(".img-cursor").css("visibility", "hidden");
@@ -832,7 +839,7 @@
                     $(".img-frame").children(".img-group").css("visibility", "visible");
                     $(".img-frame").children(".img-description").css("visibility", "visible");
                     $(".img-frame").css("width", "100%");
-                    $(".img-frame").css("height", "100%");
+                    $(".img-frame").css("height", "auto");
                     $(".img-frame").css("left", 0);
                     $(".img-frame").css("top", 0);
                     $(".img-cursor").css("visibility", "hidden");                    
