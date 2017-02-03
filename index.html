@@ -822,8 +822,8 @@
                     
                     
                     for (var i = 0; i < 9; i++) {
-                        $(".img-frame").eq(i).css("left", (Math.cos(((i - 2)/8.0) * (Math.PI * 2)) * (center_width/1.35)) + center_width);
-                        $(".img-frame").eq(i).css("top", (Math.sin(((i - 2)/8.0) * (Math.PI * 2)) * (center_width/1.35)) + center_width + (height * 2) + 45);
+                        $(".img-frame").eq(i).css("left", (Math.cos(((i - 2)/8.0) * (Math.PI * 2)) * (center_width/1.5)) + center_width);
+                        $(".img-frame").eq(i).css("top", (Math.sin(((i - 2)/8.0) * (Math.PI * 2)) * (center_width/1.5)) + center_width + (height * 2) + 45);
                     }
 
                     var x_loc = parseInt($(".img-frame").css("left")) + parseInt($(".img-frame").eq(0).css("width"))/2;
