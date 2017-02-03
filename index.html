@@ -566,12 +566,6 @@
                 <div class='img-description'>Victor's resume is nothing short of impressive. With seven years of coding experience under his belt and three years holding various leadership roles, Victor leads the Ocho Development team.  What he lacks in humor he makes up for with his strong passion for Ariana Grande's music.</div>
             </div>
             <div class="img-frame">
-                <img class='member-img dev' src="images/daniel-s.png">
-                <div class='img-group dev-text'>Development</div>
-                <div class='img-title'>Daniel Sohn</div>
-                <div class='img-description'>Having filed a patent in Korea, Daniel has already made waves following his entrepreneurial aspirations. He is additionally a trilingual superstar, making him one language shy of being the most interesting man in the world. With an appreciation for the classics, Daniel enjoys listening to Mozart.</div>
-            </div>
-            <div class="img-frame">
                 <img class='member-img dev' src="images/richard-s.jpg">
                 <div class='img-group dev-text'>Development</div>
                 <div class='img-title'>Richard Guo</div>
@@ -828,8 +822,8 @@
                     
                     
                     for (var i = 0; i < 9; i++) {
-                        $(".img-frame").eq(i).css("left", (Math.cos(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.35)) + center_width);
-                        $(".img-frame").eq(i).css("top", (Math.sin(((i - 2.25)/9.0) * (Math.PI * 2)) * (center_width/1.35)) + center_width + (height * 2) + 45);
+                        $(".img-frame").eq(i).css("left", (Math.cos(((i - 2)/8.0) * (Math.PI * 2)) * (center_width/1.35)) + center_width);
+                        $(".img-frame").eq(i).css("top", (Math.sin(((i - 2)/8.0) * (Math.PI * 2)) * (center_width/1.35)) + center_width + (height * 2) + 45);
                     }
 
                     var x_loc = parseInt($(".img-frame").css("left")) + parseInt($(".img-frame").eq(0).css("width"))/2;
