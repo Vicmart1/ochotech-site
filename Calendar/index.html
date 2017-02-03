@@ -6,6 +6,7 @@
                 padding: 0px;
                 font-family: Helvetica Neue;
                 font-weight: lighter;
+                overflow: hidden;
             }
             
             .window {
@@ -28,7 +29,12 @@
             }
             
             .name {
-                padding-left: calc(50% - 365px);
+                padding-left: calc(50% - 380px);
+            }
+            
+            .pillstreak {
+                float: right;
+                padding-right: 50px;
             }
             
             .content {
@@ -39,53 +45,112 @@
             .day {
                 width: calc(14.28% - 6px);
                 height: 0px;
-                padding-bottom: 14.28%;
+                padding-bottom: calc(14.28% - 6px);
                 float: left;
-                border-right: 1px solid gray;
-                border-top: 1px solid gray;
+                border-right: 1px solid #87CEFA;
+                border-top: 1px solid #87CEFA;
                 padding-left: 5px;
                 padding-top: 5px;
                 font-size: 1.5em;
+                
+                -webkit-transition: all 0.5s;
+                -m-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+            
+            .day:hover {
+                background-color: #b5e1fc;
             }
             
             .weekend {
-                background-color: #EEE;
+                background-color: #dbf1ff;
+            }
+            
+            .good {
+                background-image: url("Good.png");
+                background-size: 50%;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            
+            .medium {
+                background-image: url("Medium.png");
+                background-size: 50%;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            
+            .bad {
+                background-image: url("Bad.png");
+                background-size: 50%;
+                background-position: center;
+                background-repeat: no-repeat;
+                
+                -webkit-transition: all 0.5s;
+                -m-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+            
+            .bad:hover {
+                background-size: 20%;
+                background-position: 95% 5%;
+            }
+            
+            .pills {
+                padding-top: 15px;
+                opacity: 0;
+                font-size: 0.85em;
+                
+                -webkit-transition: all 0.5s;
+                -m-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;
             }
         </style>
     </head>
     <body>
         <div class="window">
-            <div class="headline">February<b>2017</b><span class="name">Graeme Steller</span></div>
+            <div class="headline">February <b>2017</b><span class="name">Graeme <b>Steller</b></span><span class="pillstreak">Best Pillstreak <b>4</b></span></div>
             <div class="content">
                 <div class="day weekend">1</div>
-                <div class="day">2</div>
-                <div class="day">3</div>
-                <div class="day">4</div>
-                <div class="day">5</div>
-                <div class="day">6</div>
-                <div class="day weekend">7</div>
-                <div class="day weekend">8</div>
-                <div class="day">9</div>
-                <div class="day">10</div>
-                <div class="day">11</div>
-                <div class="day">12</div>
-                <div class="day">13</div>
-                <div class="day weekend">14</div>
-                <div class="day weekend">15</div>
-                <div class="day">16</div>
-                <div class="day">17</div>
-                <div class="day">18</div>
-                <div class="day">19</div>
-                <div class="day">20</div>
-                <div class="day weekend">21</div>
-                <div class="day weekend">22</div>
-                <div class="day">13</div>
-                <div class="day">24</div>
-                <div class="day">25</div>
-                <div class="day">26</div>
-                <div class="day">27</div>
+                <div class="day good">2</div>
+                <div class="day good">3</div>
+                <div class="day medium">4</div>
+                <div class="day good">5</div>
+                <div class="day good">6</div>
+                <div class="day bad weekend">7</div>
+                <div class="day good weekend">8</div>
+                <div class="day good">9</div>
+                <div class="day medium">10</div>
+                <div class="day good">11</div>
+                <div class="day good">12</div>
+                <div class="day good">13</div>
+                <div class="day good weekend">14</div>
+                <div class="day medium weekend">15</div>
+                <div class="day medium">16</div>
+                <div class="day good">17</div>
+                <div class="day bad">18<div class="pills">Meds not taken:<ul><li>Atorvastatin 10mg</li><li>Aocor 20mg</li><li>Aspirin 50mg</li></ul></div></div>
+                <div class="day good">19</div>
+                <div class="day good">20</div>
+                <div class="day medium weekend">21</div>
+                <div class="day good weekend">22</div>
+                <div class="day good">13</div>
+                <div class="day good">24</div>
+                <div class="day bad">25</div>
+                <div class="day medium">26</div>
+                <div class="day good">27</div>
                 <div class="day weekend">28</div>
             </div>
         </div>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+        <script>
+            $(".day").hover(function() {
+                $(this).children(".pills").css("opacity", "1");
+            }, function() {
+                $(this).children(".pills").css("opacity", "0");
+            });
+        </script>
     </body>
 </html>
