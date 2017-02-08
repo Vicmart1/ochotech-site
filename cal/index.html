@@ -15,7 +15,7 @@
             }
             
             .headline {
-                width: 100%;
+                width: calc(100% - 20px);
                 padding-left: 20px;
                 padding-top: 30px;
                 padding-bottom: 5px;
@@ -40,7 +40,7 @@
             
             .pillstreak {
                 float: right;
-                padding-right: 50px;
+                padding-right: 20px;
             }
             
             .content {
@@ -149,7 +149,7 @@
             }
             
             .login > input {
-                font-size: 1em;
+                font-size: 0.75em;
                 width: 400px;
                 margin-top: 15px;
                 border-radius: 5px;
@@ -196,21 +196,29 @@
                 background-color: #FFF;
                 cursor:default;
             }
+            
+            .footer {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                font-size: 1.2em;
+            }
         </style>
     </head>
     <body>
         <div class="window">
-            <div class="headline">February <b>2017</b><span class="name">Graeme <b>Steller</b></span><span class="pillstreak">Best Pillstreak <b>71%</b></span></div>
+            <div class="headline">February <b>2017</b><span class="name">Graeme <b>Steller</b></span><span class="pillstreak">Best Pillstreak <b><span id="streak">71%</span></b></span></div>
             <div class="content">
             </div>
             <div class="login">
                 Log <b>in</b></br>
-                <input type="text" name="fullname" class="login-input">
+                <input type="text" name="fullname" placeholder="Patient's name"class="login-input">
             </div>
             <div class="context-menu">
                 <div class="context-item context-title">Options</div>
                 <div class="context-item context-remove">Clear Today's Data</div>
             </div>
+            <div class="footer">2017 Copyright <b>Ocho Tech</b></div>
         </div>
         <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
         <script>
@@ -258,21 +266,30 @@
                     $(".login").addClass("login-gone");
                     $(".headline").css("opacity", 1);
                     $(".content").css("opacity", 1);
+                    var name = $(".login-input").val();
+                    var names = name.split(" ");
+                    $(".name").html(names[0] + " <b>" + names[1] + "</b>");
+                    if (names.length < 2) {
+                        $(".name").html("Patient <b>" + names[0] + "</b>");
+                    }
                     populateCal();
                 } 
             });
             
             $(document).keyup(function(event) {
-                if (event.which == 16) {
+                if (event.which == 16 && $(".login").hasClass("login-gone")) {
                     event.preventDefault();
                     setTimeout(function() {
                         $("#8").addClass("good");
+                        count(75);
                     }, (Math.random() * 3500) + 1500);
+                    
                 } 
             });
             
             $(".context-remove").click(function() {
                 $("#8").removeClass("good");
+                count(71);
             });
             
             function dayClick() {
@@ -296,11 +313,26 @@
                 currentMousePos.y = event.pageY;
             });
             
+            function count(target) {
+                var current = parseInt($("#streak").text());
+                
+                if (current != target) {                
+                    if (current < target) {
+                        current += 1;
+                    } else {
+                        current -= 1;
+                    }
+                    if (current != target) {
+                        setTimeout(function() {
+                            count(target);
+                        }, 100);
+                    }
+                    $("#streak").text(current + "%");
+                }
+            };
+            
             $(document).ready(function() {
-                $(".login").addClass("login-gone");
-                    $(".headline").css("opacity", 1);
-                    $(".content").css("opacity", 1);
-                    populateCal();
+                
             });
         </script>
     </body>
