@@ -164,6 +164,38 @@
                 position: absolute;
                 z-index: -1;
             }
+            
+            .context-menu {
+                position: absolute;
+                z-index: -1;
+                background-color: white;
+                box-shadow: 0px 0px 1px black;
+                opacity: 0;
+            }
+            
+            .context-menu-visible {
+                opacity: 1;
+                z-index: 10;
+            }
+            
+            .context-item {
+                padding: 10px;
+                cursor: hand;
+
+                -webkit-transition: all 0.5s;
+                -m-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+            
+            .context-item:hover {
+                background-color: #DDD;
+            }
+            
+            .context-title:hover {
+                background-color: #FFF;
+                cursor:default;
+            }
         </style>
     </head>
     <body>
@@ -175,9 +207,15 @@
                 Log <b>in</b></br>
                 <input type="text" name="fullname" class="login-input">
             </div>
+            <div class="context-menu">
+                <div class="context-item context-title">Options</div>
+                <div class="context-item context-remove">Clear Today's Data</div>
+            </div>
         </div>
         <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
         <script>
+            var currentMousePos = { x: -1, y: -1 };
+
             $(".day").hover(function() {
                 $(this).children(".pills").css("opacity", "1");
             }, function() {
@@ -201,7 +239,7 @@
                     if (i % 7 == 0 || (i + 1) % 7 == 0) {
                         $(newday).addClass("weekend");
                     }
-                    
+                    $(newday).click(dayClick);
                     $(".content").append(newday);  
                 }
                 
@@ -224,7 +262,45 @@
                 } 
             });
             
+            $(document).keyup(function(event) {
+                if (event.which == 16) {
+                    event.preventDefault();
+                    setTimeout(function() {
+                        $("#8").addClass("good");
+                    }, (Math.random() * 3500) + 1500);
+                } 
+            });
+            
+            $(".context-remove").click(function() {
+                $("#8").removeClass("good");
+            });
+            
+            function dayClick() {
+                $(".context-menu").css("left", currentMousePos.x - 10);
+                $(".context-menu").css("top", currentMousePos.y - 10);
+                $(".context-menu").addClass("context-menu-visible");
+            };
+
+            $(".context-menu").hover(function() {
+                
+            }, function() {
+                $(".context-menu").removeClass("context-menu-visible"); 
+            });
+            
+            $(".context-item").click(function() {
+                $(".context-menu").removeClass("context-menu-visible"); 
+            });
+            
+            $(document).mousemove(function(event) {
+                currentMousePos.x = event.pageX;
+                currentMousePos.y = event.pageY;
+            });
+            
             $(document).ready(function() {
+                $(".login").addClass("login-gone");
+                    $(".headline").css("opacity", 1);
+                    $(".content").css("opacity", 1);
+                    populateCal();
             });
         </script>
     </body>
