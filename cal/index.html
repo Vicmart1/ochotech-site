@@ -232,7 +232,7 @@
     </head>
     <body>
         <div class="window">
-            <div class="headline">February <b>2017</b><span class="name">Graeme <b>Steller</b></span><span class="pillstreak">Adherence <b><span id="streak">71%</span></b></span></div>
+            <div class="headline">February <b>2017</b><span class="name">Graeme <b>Steller</b></span><span class="pillstreak">Adherence <b><span id="streak">72%</span></b></span></div>
             <div class="content">
             </div>
             <div class="login">
@@ -246,7 +246,7 @@
                 <div class="context-item context-change">Change Patient</div>
             </div>
         <div class="footer"><b>OCHO Tech</b> © 2017</div>
-            <div class="footer footer-left">v <b>0.53</b></div>
+            <div class="footer footer-left">v <b>0.54</b></div>
         </div>
         <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
         <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
@@ -287,6 +287,10 @@
                 $("#5").addClass("good");
                 $("#6").addClass("bad");
                 $("#7").addClass("good");
+                $("#8").addClass("good");
+                $("#9").addClass("good");
+                $("#10").addClass("bad");
+                $("#11").addClass("good");
             };
             
             $(".login-input").keyup(function(event) {
@@ -310,7 +314,7 @@
                 if (event.which == 16 && $(".login").hasClass("login-gone")) {
                     event.preventDefault();
                     setTimeout(function() {
-                        $("#8").addClass("good");
+                        $("#12").addClass("good");
                         count(75);
                     }, (Math.random() * 3500) + 1500);
                     
@@ -318,8 +322,8 @@
             });
             
             $(".context-remove").click(function() {
-                $("#8").removeClass("good");
-                count(71);
+                $("#12").removeClass("good");
+                count(72);
             });
             
             $(".context-change").click(function() {
