@@ -17,6 +17,7 @@
             Ocho Tech
         </title>
         <style>
+            
             @font-face {
                 font-family: BigJohn;
                 src: url(styles/fonts/BIG_JOHN.otf);
@@ -34,7 +35,7 @@
 
             @font-face {
                 font-family: raleway-thin;
-                src: url(styles/fonts/Raleway-Thin.ttf);
+                src: url(styles/fonts/Raleway-Light.ttf);
             }
 
             html {
@@ -46,11 +47,35 @@
                 overflow-x: hidden;
             }
             
+            .header {
+                position: fixed;
+                height: 100px;
+                width: 100%;
+                top: 0px;
+                left: 0px;
+                z-index: 100;
+            }
+            
+            .header > .title {
+                top: 0px;
+                padding-top: 40px;
+                padding-bottom: 10px;
+                right: 150px;
+                height: calc(100% - 50px);
+                width: 200px;
+                background-color: white;
+                color: #2DC9FE;
+                font-size: 3em;
+                text-align: center;
+                font-family: BigJohn;
+            }
+            
             .container {
                 width: calc(100%);
                 margin: auto auto;
                 height: 100%;
                 color: white;
+                position: relative;
             }
             
             .members {
@@ -65,15 +90,14 @@
             
             .title {
                 text-align: center;
-                font-size: 6em;
+                font-size: 4em;
                 position: absolute;
                 margin: 0;
                 width: 100%;
-                top: calc(65% - 1em);
-                left: -0.4em;
+                top: calc(20% - 1em);
                 display: inline-block;
                 font-family: raleway;
-                opacity: 0;
+                opacity: 1;
                 
                 -webkit-transition: all 2s;
                 -m-transition: all 2s;
@@ -81,8 +105,9 @@
                 transition: all 2s;
             }
             
-            .fadein-title {
-                top: calc(70% - 1em);
+            .title-subtitle {
+                top: calc(25% - 1em);
+                font-size: 2em;
             }
             
             .subtitle {
@@ -100,6 +125,25 @@
                 -m-transition: all 1s;
                 -moz-transition: all 1s;
                 transition: all 1s;
+            }
+            
+            .description {
+                text-align: center;
+                font-size: 2em;
+                position: absolute;
+                margin: 0;
+                width: calc(100% - 160px);
+                left: 0px;
+                top: calc(50%);
+                padding: 80px;
+                display: inline-block;
+                font-family: raleway;
+                opacity: 1;
+                
+                -webkit-transition: all 2s;
+                -m-transition: all 2s;
+                -moz-transition: all 2s;
+                transition: all 2s;    
             }
             
             .motto {
@@ -309,6 +353,10 @@
                 font-size: 0.3em;
             }
             
+            .medium-subtitle {
+                font-size: 0.5em;
+            }
+            
             .progress > svg {
                 display: block;
             }
@@ -390,12 +438,14 @@
                 }
                 
                 .title {
-                    font-size: 4em;
+                    font-size: 2em;
                 }
                 
-                .fadein-title {
-                    top: calc(70% - 0.6em);
-                }                
+                .title-subtitle {
+                    font-size: 1em;
+                    top: calc(28% - 1em);
+                }
+                             
                 .motto {
                     font-size: 1em;
                 }
@@ -521,10 +571,25 @@
                 position: absolute;
                 height: 15px;
             }
+            
+            .iphone{
+                position: absolute;
+                width: 100%;
+                height: 60%;
+                top: 27.5%;
+                left: 0%;
+                background-image: url("iphone6_template_graeme.png");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         </style>
     </head>
     <body>
-        <div class="container">
+        <div class="header">
+            <div class="title">OCHO</div>
+        </div>
+        <!--div class="container">
             <svg height="400" width="400" class="drawing" style="transform: rotate(90.1deg); animation-delay: 1.0s;">
                 <ellipse id="svg1"  cx="161" cy="200" rx="39" ry="49.6" stroke="white" fill="none" stroke-width="5"/>
             </svg> 
@@ -540,8 +605,30 @@
             <div class="title">OCHO<h6 class="subtitle">TECH</h6></div>
             <!--div class="motto">an adherance & veri company</div>
             <!--div class="motto intro">DESIGN TEAM 8 PRESENTS</div>
-            <div class="footer">Patent Pending</div-->
+            <div class="footer">Patent Pending</div>
             <div class="arrow-down member-link"></div>
+        </div-->
+        <div class="container">
+            <div class="title">Introducing PillPal.</div>
+            <div class="title title-subtitle">We make pill taking fun!</div>
+            <div class="iphone"></div>
+            <div class="arrow-down member-link"></div>
+        </div>
+        <div class="container" id="video">
+            <h1 class="section-title white">About Us</h1>
+            <svg height="400" width="400" class="drawing" style="transform: rotate(90.1deg); animation-delay: 1.0s;">
+                <ellipse id="svg1"  cx="161" cy="200" rx="39" ry="49.6" stroke="white" fill="none" stroke-width="5"/>
+            </svg> 
+            <svg height="400" width="400" class="drawing" style="transform: rotate(270.1deg); animation: dash 5.25s ease forwards; animation-delay: 1.0s;">
+                <ellipse id="svg2" cx="150.5" cy="200" rx="49.5" ry="57" stroke="white" fill="none" stroke-width="5"/>
+            </svg> 
+            <svg height="400" width="400" class="drawing" style="animation: dash-half 2.5s ease forwards; animation-delay: 1.0s;">
+                <ellipse id="svg3" cx="210" cy="200" rx="125" ry="125" stroke="white" fill="none" stroke-width="3"/>
+            </svg> 
+            <svg height="400" width="400" class="drawing" style="transform: rotate(-90.1deg); animation: dash-half 2.5s ease forwards; animation-delay: 1.0s;">
+                <ellipse id="svg4" cx="190" cy="200" rx="125" ry="125" stroke="white" fill="none" stroke-width="3"/>
+            </svg>
+            <div class="description">Ocho is a start-up digital health company that designs breakthrough solutions to empower patients as partners in their own care. Patient empowerment begins with motivating patients to engage in treatment, which in many cases involves taking prescribed medications. Ocho’s flagship product is PillPal, a smartphone application designed to improve and sustain clinician-validated medication adherence by using social motivation.</div>
         </div>
         <div class="container" id="video">
             <iframe src="https://www.youtube.com/embed/ZtV5vSflqWg"></iframe>
@@ -612,14 +699,14 @@
                 <div class="progress" id="interviews"></div>
                 <div class="progress" id="countries"></div>
             </div>
-<div class='section-para white' id='second'>After conducting thorough literary review and user studies, we focused on medication adherence with <span class='bold'>Coronary Artery Disease (CAD)</span> patients. Of those patients:</div>
+<div class='section-para white' id='second'>After conducting thorough literary review and user studies, we discovered that an estimated 50% of patients are nonadherent to their medications. Medication nonadherence leads to increased patient morbidity and costs $300 billion annually in the U.S. alone. This is particularly prevalent in coronary artery disease (CAD), where nonadherence is as high as 80%, and has been strongly linked with poor health outcomes and unnecessary medical costs.</div>
             <div class="center-items">
                 <div class="progress" id="patients"></div>
                 <div class="progress" id="doctors"></div>
             </div>
-            <div class='section-para white'>Our results show that more likely than not, Coronary Artery Disease patients are <span class='bold'>not</span> telling the truth about their medication adherence. </div>
+            <div class='section-para white'>Currently, there is no way to motivate patients to take their medications, while also accurately verifying appropriate medication adherence to clinicians.</div>
             </br></br></br>
-            <div class='section-para white'>Thus, we believe that physicians need a way to <span class='bold'>verify</span> that CAD patients are taking their medications as prescribed.</div>
+            <div class='section-para white'>In doing so, we can potentially improve patient health outcomes and significantly reduce health care spending.</div>
             </br></br></br>
             <div class='section-para white'>If you want to learn more, contact us.</div>
             </br></br></br>
@@ -674,7 +761,7 @@
 
                 step: function(state, circle) {
                     var value = Math.round(circle.value() * 300);
-                    circle.setText(value + "</br><span class='progress-subtitle'>user studies</span>");
+                    circle.setText("<span class='progress-subtitle medium-subtitle'>over</br></span>" + value + "</br><span class='progress-subtitle'>user studies</span>");
                 }
             });
 
@@ -698,7 +785,7 @@
 
                 step: function(state, circle) {
                     var value = Math.round(circle.value() * 100);
-                    circle.setText(value + "%</br><span class='progress-subtitle small-subtitle'>of CAD patients are chronic</span>");
+                    circle.setText(value + "%</br><span class='progress-subtitle small-subtitle'>of patients are nonadherent</span>");
                 }
             });
 
@@ -710,7 +797,7 @@
 
                 step: function(state, circle) {
                     var value = Math.round(circle.value() * 100);
-                    circle.setText("<span class='progress-subtitle small-subtitle'>up to</br></span>" + value + "%</br><span class='progress-subtitle small-subtitle'>of chronic patients fail to adhere</span>");
+                    circle.setText("<span class='progress-subtitle small-subtitle'>up to</br></span>" + value + "%</br><span class='progress-subtitle small-subtitle'>of CAD patients fail to adhere</span>");
                 }
             });
             
@@ -720,6 +807,8 @@
             countries.animate(0);
             
             $(".intro").css("opacity", 1);
+            $(".member-link").css("opacity", 1);    
+
             setTimeout(function() {
                 $(".intro").css("opacity", 0);
                 $(".title").css("opacity", 1);
@@ -730,7 +819,6 @@
                     setTimeout(function() {
                         $(".motto").css("opacity", 1);
                         $(".intro").css("opacity", 0);
-                        $(".member-link").css("opacity", 1);    
                     }, 1000);
                 }, 1000);
             }, 1000);
@@ -796,14 +884,14 @@
                     var center_width = (width/2) - (frame_width/2);
 
                     $(".center-item").css("left", center_width * 0.80);
-                    $(".center-item").css("top", (center_width * 1.15) + (height * 2) + 55);
-                    $(".center-item-title").css("top", (center_width * 1.05) + (height * 2) + 55);
+                    $(".center-item").css("top", (center_width * 1.15) + 10);
+                    $(".center-item-title").css("top", (center_width * 1.05) + 10);
                     $(".center-group").css("left", center_width * 1.27);
-                    $(".center-group").css("top", (center_width * 1.0) + (height * 2) + 55);
-                    $(".members").css("height", (center_width * 2) + 200);
+                    $(".center-group").css("top", (center_width * 1.0) + 10);
+                    $(".members").css("height", (center_width * 2) + 160);
                     $(".member-canvas").css("height", (center_width * 2) + 175);
                     $(".group-child").attr("cx", center_width * 1.33);
-                    $(".group-child").attr("cy", (center_width * 1.33)  + (height * 2) + 5);
+                    $(".group-child").attr("cy", (center_width * 1.33) + 5);
                     $(".group-child").attr("rx", center_width * 0.72);
                     $(".group-child").attr("ry", center_width * 0.72);
 
@@ -823,7 +911,7 @@
                     
                     for (var i = 0; i < 9; i++) {
                         $(".img-frame").eq(i).css("left", (Math.cos(((i - 2)/8.0) * (Math.PI * 2)) * (center_width/1.5)) + center_width);
-                        $(".img-frame").eq(i).css("top", (Math.sin(((i - 2)/8.0) * (Math.PI * 2)) * (center_width/1.5)) + center_width + (height * 2) + 45);
+                        $(".img-frame").eq(i).css("top", (Math.sin(((i - 2)/8.0) * (Math.PI * 2)) * (center_width/1.5)) + center_width);
                     }
 
                     var x_loc = parseInt($(".img-frame").css("left")) + parseInt($(".img-frame").eq(0).css("width"))/2;
@@ -1004,7 +1092,7 @@
             }
             
             function secondSet() {
-                patients.animate(0.81);
+                patients.animate(0.5);
                 doctors.animate(0.8);
             }
             
