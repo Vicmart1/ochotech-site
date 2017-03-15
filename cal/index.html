@@ -35,7 +35,7 @@
             }
             
             .name {
-                padding-left: calc(50% - 380px);
+                padding-left: calc(50% - 320px);
             }
             
             .pillstreak {
@@ -233,7 +233,7 @@
     </head>
     <body>
         <div class="window">
-            <div class="headline">February <b>2017</b><span class="name">Graeme <b>Steller</b></span><span class="pillstreak">Adherence <b><span id="streak">72%</span></b></span></div>
+            <div class="headline">March <b>2017</b><span class="name">Graeme <b>Steller</b></span><span class="pillstreak">Adherence <b><span id="streak">50%</span></b></span></div>
             <div class="content">
             </div>
             <div class="login">
@@ -260,7 +260,7 @@
                 $(this).children(".pills").css("opacity", "0");
             });
             
-            function populateCal() {
+            function populateCal(responseArray) {
                 for (var i = 0; i < 35; i++) {
                     var newday = $("<div class='day'></div>");
                     if (i >= 3 && i <= 30) {
@@ -281,46 +281,130 @@
                     $(".content").append(newday);  
                 }
                 
-                $("#1").addClass("good");
-                $("#2").addClass("good");
-                $("#3").addClass("good");
-                $("#4").addClass("bad");
-                $("#5").addClass("good");
-                $("#6").addClass("bad");
-                $("#7").addClass("good");
-                $("#8").addClass("good");
-                $("#9").addClass("good");
-                $("#10").addClass("bad");
-                $("#11").addClass("good");
+                for (i = 1; i <= 14; i++) {
+                    $("#" + i).addClass("bad");
+                }
+                
+                var count_days = 0;
+                var lastday = -1;
+                for (i = 0; i < responseArray.length; i++) {
+                    var day_sum = responseArray[i].split("\'")[1].split(" ")[0];
+                    var comps = day_sum.split("-");
+                    var month = comps[1];
+                    var day = comps[2];
+                    
+                    if (day != lastday) {
+                        count_days++;
+                    }
+                    
+                    lastday = day;
+                    
+                    $("#" + day).removeClass("bad");
+                    $("#" + day).addClass("good");
+                }
+                
+                count(parseInt((count_days / 15) * 100));
+                
             };
+            
+            function rePopulateCal(responseArray) {
+                var count_days = 0;
+                var lastday = -1;
+
+                for (i = 0; i < responseArray.length; i++) {
+                    var day_sum = responseArray[i].split("\'")[1].split(" ")[0];
+                    var comps = day_sum.split("-");
+                    var month = comps[1];
+                    var day = comps[2];
+                    
+                    if (day != lastday) {
+                        count_days++;
+                    }
+                    
+                    lastday = day;
+                    
+                    $("#" + day).removeClass("bad");
+                    $("#" + day).addClass("good");
+                }
+                                
+                count(parseInt((count_days / 15) * 100));
+                
+            };
+            
             
             $(".login-input").keyup(function(event) {
                 if (event.which == 13) {
-                    event.preventDefault();
-                    $(".login").addClass("login-gone");
-                    $(".login").removeClass("login-show");
-                    $(".headline").css("opacity", 1);
-                    $(".content").css("opacity", 1);
                     var name = $(".login-input").val();
                     var names = name.split(" ");
-                    $(".name").html(names[0] + " <b>" + names[1] + "</b>");
-                    if (names.length < 2) {
-                        $(".name").html("Patient <b>" + names[0] + "</b>");
+                    
+                    var request = makeHttpObject();
+                    request.open("POST", "https://pillpall.herokuapp.com/logPatient", true);
+                    request.onreadystatechange = state_change;
+                    request.setRequestHeader("firstname", names[0]);
+                    request.setRequestHeader("lastname", names[1]);
+                    request.send(null);
+
+                    function state_change() {
+                        if (request.readyState==4) {
+                            if (request.status==200) {
+                                
+                                event.preventDefault();
+                                $(".login").addClass("login-gone");
+                                $(".login").removeClass("login-show");
+                                $(".headline").css("opacity", 1);
+                                $(".content").css("opacity", 1);
+                                var name = $(".login-input").val();
+                                var names = name.split(" ");
+                                $(".name").html(names[0] + " <b>" + names[1] + "</b>");
+                                if (names.length < 2) {
+                                    $(".name").html("Patient <b>" + names[0] + "</b>");
+                                }
+                                populateCal(request.responseText.split(","));
+                                
+                                setTimeout(refreshCal, 1000);
+                            } else {
+                                console.log("Problem retrieving XML data");
+                            }
+                        }
                     }
-                    populateCal();
                 } 
             });
             
-            $(document).keyup(function(event) {
-                if (event.which == 16 && $(".login").hasClass("login-gone")) {
-                    event.preventDefault();
-                    setTimeout(function() {
-                        $("#12").addClass("good");
-                        count(75);
-                    }, (Math.random() * 3500) + 1500);
-                    
-                } 
-            });
+            function refreshCal() {
+                var name = $(".login-input").val();
+                var names = name.split(" ");
+
+                var request = makeHttpObject();
+                request.open("POST", "https://pillpall.herokuapp.com/logPatient", true);
+                request.onreadystatechange = state_change;
+                request.setRequestHeader("firstname", names[0]);
+                request.setRequestHeader("lastname", names[1]);
+                request.send(null);
+
+                function state_change() {
+                    if (request.readyState==4) {
+                        if (request.status==200) {
+
+                            event.preventDefault();
+                            $(".login").addClass("login-gone");
+                            $(".login").removeClass("login-show");
+                            $(".headline").css("opacity", 1);
+                            $(".content").css("opacity", 1);
+                            var name = $(".login-input").val();
+                            var names = name.split(" ");
+                            $(".name").html(names[0] + " <b>" + names[1] + "</b>");
+                            if (names.length < 2) {
+                                $(".name").html("Patient <b>" + names[0] + "</b>");
+                            }
+                            rePopulateCal(request.responseText.split(","));
+                        } else {
+                            console.log("Problem retrieving XML data");
+                        }
+                    }
+                }
+                
+                setTimeout(refreshCal, 5000);
+            }
             
             $(".context-remove").click(function() {
                 $("#12").removeClass("good");
@@ -369,6 +453,17 @@
                     $("#streak").text(current + "%");
                 }
             };
+            
+            function makeHttpObject() {
+                try {return new XMLHttpRequest();}
+                catch (error) {}
+                try {return new ActiveXObject("Msxml2.XMLHTTP");}
+                catch (error) {}
+                try {return new ActiveXObject("Microsoft.XMLHTTP");}
+                catch (error) {}
+
+                throw new Error("Could not create HTTP request object.");
+            }
             
             $(document).ready(function() {
                 /**var xmlhttp, text;
