@@ -76,6 +76,19 @@
                 background-color: #b5e1fc;
             }
             
+            .day > ul {
+                opacity: 0;
+                margin-top: 50px;
+                -webkit-transition: all 0.5s;
+                -m-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+            
+            .day:hover > ul {
+                opacity: 1;
+            }
+            
             .weekend {
                 background-color: #dbf1ff;
             }
@@ -210,6 +223,8 @@
             
             .context-title {
                 border-bottom: 1px solid #DDD;
+                color: #999;
+                letter-spacing: 1px;
             }
             
             .context-title:hover {
@@ -233,12 +248,12 @@
     </head>
     <body>
         <div class="window">
-            <div class="headline">March <b>2017</b><span class="name">Graeme <b>Steller</b></span><span class="pillstreak">Adherence <b><span id="streak">50%</span></b></span></div>
+            <div class="headline">April <b>2017</b><span class="name">Graeme <b>Steller</b></span><span class="pillstreak">Adherence <b><span id="streak">50%</span></b></span></div>
             <div class="content">
             </div>
             <div class="login">
                 Welcome to <b>PillPal,</b></br>
-                <div class="subtitle">Dr. Nguyen</div>
+                <div class="subtitle">Doctor</div>
                 <input type="text" name="fullname" placeholder="Patient's name"class="login-input">
             </div>
             <div class="context-menu">
@@ -261,16 +276,16 @@
             });
             
             function populateCal(responseArray) {
-                for (var i = 0; i < 35; i++) {
+                for (var i = 0; i < 42; i++) {
                     var newday = $("<div class='day'></div>");
-                    if (i >= 3 && i <= 30) {
-                        $(newday).text(i - 2);
-                        $(newday).attr("id", i - 2);
-                    } else if (i < 3) {
-                        $(newday).text(i + 29);
+                    if (i >= 6 && i <= 35) {
+                        $(newday).text(i - 5);
+                        $(newday).attr("id", i - 5);
+                    } else if (i < 6) {
+                        $(newday).text(i + 26);
                         $(newday).addClass("last_month");
-                    } else if (i > 30) {
-                        $(newday).text(i - 30);
+                    } else if (i > 35) {
+                        $(newday).text(i - 35);
                         $(newday).addClass("last_month");
                     }
 
@@ -281,14 +296,15 @@
                     $(".content").append(newday);  
                 }
                 
-                for (i = 1; i <= 14; i++) {
+                for (i = 1; i <= 12; i++) {
                     $("#" + i).addClass("bad");
+                    $("#" + i).html("<ul><li>Aspirin</li><li>Lasix</li><li>Amlodipine</li></ul>");
                 }
                 
                 var count_days = 0;
                 var lastday = -1;
                 for (i = 0; i < responseArray.length; i++) {
-                    var day_sum = responseArray[i].split("\'")[1].split(" ")[0];
+                    /**var day_sum = responseArray[i].split("\'")[1].split(" ")[0];
                     var comps = day_sum.split("-");
                     var month = comps[1];
                     var day = comps[2];
@@ -300,11 +316,11 @@
                     lastday = day;
                     
                     $("#" + day).removeClass("bad");
-                    $("#" + day).addClass("good");
+                    $("#" + day).addClass("good");**/
                 }
-                
-                count(parseInt((count_days / 15) * 100));
-                
+                    
+                //count(parseInt((count_days / 15) * 100));
+                count(0);
             };
             
             function rePopulateCal(responseArray) {
@@ -312,7 +328,7 @@
                 var lastday = -1;
 
                 for (i = 0; i < responseArray.length; i++) {
-                    var day_sum = responseArray[i].split("\'")[1].split(" ")[0];
+                    /**var day_sum = responseArray[i].split("\'")[1].split(" ")[0];
                     var comps = day_sum.split("-");
                     var month = comps[1];
                     var day = comps[2];
@@ -324,11 +340,10 @@
                     lastday = day;
                     
                     $("#" + day).removeClass("bad");
-                    $("#" + day).addClass("good");
+                    $("#" + day).addClass("good");**/
                 }
                                 
                 count(parseInt((count_days / 15) * 100));
-                
             };
             
             
@@ -359,6 +374,7 @@
                                 if (names.length < 2) {
                                     $(".name").html("Patient <b>" + names[0] + "</b>");
                                 }
+                                console.log(request.responseText);
                                 populateCal(request.responseText.split(","));
                                 
                                 setTimeout(refreshCal, 1000);
@@ -408,7 +424,6 @@
             
             $(".context-remove").click(function() {
                 $("#12").removeClass("good");
-                count(72);
             });
             
             $(".context-change").click(function() {
@@ -438,7 +453,7 @@
             
             function count(target) {
                 var current = parseInt($("#streak").text());
-                
+
                 if (current != target) {                
                     if (current < target) {
                         current += 1;
@@ -448,7 +463,7 @@
                     if (current != target) {
                         setTimeout(function() {
                             count(target);
-                        }, 100);
+                        }, 1000/Math.abs(current - target));
                     }
                     $("#streak").text(current + "%");
                 }
