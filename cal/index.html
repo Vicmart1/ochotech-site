@@ -351,8 +351,13 @@
                 if (event.which == 13) {
                     var name = $(".login-input").val();
                     var names = name.split(" ");
+                    populateCal([]);
+                    $(".headline").css("opacity", 1);
+                    $(".content").css("opacity", 1);
+                    $(".login").addClass("login-gone");
+                    $(".login").removeClass("login-show");
                     
-                    var request = makeHttpObject();
+                    /**var request = makeHttpObject();
                     request.open("POST", "https://pillpall.herokuapp.com/logPatient", true);
                     request.onreadystatechange = state_change;
                     request.setRequestHeader("firstname", names[0]);
@@ -382,7 +387,7 @@
                                 console.log("Problem retrieving XML data");
                             }
                         }
-                    }
+                    }**/
                 } 
             });
             
