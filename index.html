@@ -68,6 +68,8 @@
                 font-size: 3em;
                 text-align: center;
                 font-family: BigJohn;
+                border: 2px solid #2DC9FE;
+                border-top: none;
             }
             
             .container {
@@ -99,10 +101,10 @@
                 font-family: raleway;
                 opacity: 1;
                 
-                -webkit-transition: all 2s;
-                -m-transition: all 2s;
-                -moz-transition: all 2s;
-                transition: all 2s;
+                -webkit-transition: all 0.5s;
+                -m-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;
             }
             
             .title-subtitle {
@@ -129,21 +131,21 @@
             
             .description {
                 text-align: center;
-                font-size: 2em;
+                font-size: 1.5em;
                 position: absolute;
                 margin: 0;
-                width: calc(100% - 160px);
-                left: 0px;
+                width: calc(75% - 160px);
+                left: calc(12.5% - 0px);
                 top: calc(50%);
                 padding: 80px;
                 display: inline-block;
                 font-family: raleway;
                 opacity: 1;
                 
-                -webkit-transition: all 2s;
-                -m-transition: all 2s;
-                -moz-transition: all 2s;
-                transition: all 2s;    
+                -webkit-transition: all 0.5s;
+                -m-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;    
             }
             
             .motto {
@@ -216,16 +218,16 @@
             }
             
             .section-para {
-                font-size: 2.5em;
+                font-size: 1.5em;
                 position: relative;
+                text-align: justify;
                 margin: 0;
-                margin-left: 40px;
-                margin-right: 20px;
+                margin-left: 12.5%;
                 margin-top: 0px;
                 display: inline-block;
                 font-family: raleway-thin;
                 color: black;
-                width: calc(100% - 80px);
+                width: calc(75% - 0px);
             }
             
             .center-items {
@@ -346,7 +348,7 @@
             }
             
             .progress-subtitle {
-                font-size: 0.5em;
+                font-size: 0.3em;
             }
             
             .small-subtitle {
@@ -354,7 +356,7 @@
             }
             
             .medium-subtitle {
-                font-size: 0.5em;
+                font-size: 0.3em;
             }
             
             .progress > svg {
@@ -381,6 +383,10 @@
                 text-align: left; 
                 margin-left: 47px;
                 margin-bottom: 10px;
+            }
+            
+            .description-title {
+                margin-left: 12.5%;
             }
             
             .center-item {
@@ -430,6 +436,18 @@
                     margin-left: 20px;
                     font-family: raleway;
                 }
+                
+                .section-para {
+                    width: calc(100% - 40px);
+                    text-align: left;
+                }
+                
+                .description {
+                    margin-top: 20px;
+                    left: 10px;
+                    font-size: 1.5em;
+                    text-align: left;
+                }
             }
             
             @media screen and (max-width: 650px) {
@@ -476,7 +494,17 @@
                     font-size: 1.25em;
                     padding: 5px;
                     padding-top: 20px;
-                    width: calc(100% - 5px);
+                    margin-left: 0px;
+                    width: calc(100% - 20px);
+                }
+                
+                .description-intro {
+                    margin-top: 300px;
+                }
+                
+                .container-intro {
+                    height: auto;
+                    margin-bottom: 600px;
                 }
             }
             
@@ -530,19 +558,19 @@
             }
             
             .dev {
-                border: 5px solid blue;
+                border: 2px solid blue;
             }
             
             .research {
-                border: 5px solid orange;
+                border: 2px solid orange;
             }
             
             .mentor {
-                border: 5px solid red;
+                border: 2px solid red;
             }
             
             .biz {
-                border: 5px solid green;
+                border: 2px solid green;
             }
             
             .img-group {
@@ -638,7 +666,7 @@
             <div class="iphone"></div>
             <div class="arrow-down member-link"></div>
         </div>
-        <div class="container" id="video">
+        <div class="container container-intro" id="video">
             <h1 class="section-title white">About Us</h1>
             <svg height="400" width="400" class="drawing" style="transform: rotate(90.1deg); animation-delay: 1.0s;">
                 <ellipse id="svg1"  cx="161" cy="200" rx="39" ry="49.6" stroke="white" fill="none" stroke-width="5"/>
@@ -652,15 +680,15 @@
             <svg height="400" width="400" class="drawing" style="transform: rotate(-90.1deg); animation: dash-half 2.5s ease forwards; animation-delay: 1.0s;">
                 <ellipse id="svg4" cx="190" cy="200" rx="125" ry="125" stroke="white" fill="none" stroke-width="3"/>
             </svg>
-            <div class="description">Ocho is a start-up digital health company that designs breakthrough solutions to empower patients as partners in their own care. Patient empowerment begins with motivating patients to engage in treatment, which in many cases involves taking prescribed medications. Ocho’s flagship product is PillPal, a smartphone application designed to improve and sustain clinician-validated medication adherence by using social motivation.</div>
+            <div class="description description-intro">Ocho is a start-up digital health company that designs breakthrough solutions to empower patients as partners in their own care. Patient empowerment begins with motivating patients to engage in treatment, which in many cases involves taking prescribed medications. Ocho’s flagship product is PillPal, a smartphone application designed to improve and sustain clinician-validated medication adherence by using social motivation.</div>
         </div>
-        <div class="container" id="video">
+        <div class="container">
             <iframe src="https://www.youtube.com/embed/ZtV5vSflqWg"></iframe>
         </div>
         <div class="container members" id="members">
             <canvas class="member-canvas"></canvas>
             <h1 class="section-title">Our Team</h1>
-            <div class='img-description section'>Ocho Tech started as a vision in five Johns Hopkins students - a vision to disrupt medicine.</div>
+            <div class='img-description section description-title'>Ocho Tech started as a vision in five Johns Hopkins students - a vision to disrupt medicine.</div>
             <div class='img-group found-text center-item center-group'>Founder</div>
             <div class='img-title center-item center-item-title'>Graeme Steller</div>
             <div class='img-description center-item'>Graeme Steller is a senior BME and the founder of Ocho. He competes in international yo-yo competitions and serves crab cakes on his friend’s food truck. His favorite musical artist is Justin Bieber and is proud to admit it. </div>
